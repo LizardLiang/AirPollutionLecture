@@ -23,4 +23,9 @@ p {
 button {
     width: 15%;
     height: 5%;
+    font-size: 40px;
+}
+
+#timer {
+    font-size: 40px;
 }
