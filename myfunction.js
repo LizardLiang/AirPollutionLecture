@@ -1,47 +1,46 @@
-var cnt = 0;
-var id_container = [];
+var timer = 2 * 60; // timer for 2 mins
+var timer_cnt = 1;
+var timer_ID;
 
-function show_p(id){
-    // 點擊按鈕後顯示
-    document.getElementById(id).style.visibility='visible';
-    cnt++;
-    
-    // to keep which card is clicked
-    id_container[cnt] = id;
-    
-    // if there's two card clicked compare thems
-    if(cnt == 2){
-        var res = compare(id_container[1], id_container[2]);
-        
-        // if compare fail set them to hidden
-        if(!res){
-            $('#' + id_container[1]).css("visibility", "hidden");
-            $('#' + id_container[2]).css("visibility", "hidden");
-        }
-        cnt = 0;
+$(document).ready(function () {
+    initial_timer();
+})
+
+function initial_timer() {
+    $('#timer_stop_b').attr('disabled', true);
+    $('#timer_start_b').attr('disabled', false);
+    $('#timer_text').text('2:00');
+    timer_cnt = 1;
+}
+
+function start_timer() {
+    $('#timer_start_b').attr('disabled', true);
+    $('#timer_stop_b').attr('disabled', false);
+    timer_ID = setInterval(timer_tick, 1000);
+}
+
+function stop_timer() {
+    clearInterval(timer_ID);
+    initial_timer()
+}
+
+function timer_tick() {
+    SecToMin(timer - timer_cnt);
+    timer_cnt++;
+    if (timer_cnt > timer) {
+        initial_timer()
     }
 }
 
-function compare(id1, id2){
-    // fetch both text
-    var value_1 = $('#' + id1).text();
-    var value_2 = $('#' + id2).text();
-    
-    if (value_1 == value_2) {
-        return true;
-    }
-    else{
-        return false;
-    }
-}
+function SecToMin(time) {
+    var mins = Math.floor(time / 60);
+    var secs = time % 60;
+    var sec_s = secs.toString();
 
-function hideall(){
-    // if reset button is clicked set back to initial status
-    $("#p1").css('visibility', 'hidden');
-    $("#p2").css('visibility', 'hidden');
-    $("#p3").css('visibility', 'hidden');
-    $("#p4").css('visibility', 'hidden');
-    $("#p5").css('visibility', 'hidden');
-    $("#p6").css('visibility', 'hidden');
-    cnt = 0;
+    if (secs < 10) {
+        sec_s = '0' + sec_s;
+    }
+
+    var TimeString = mins + ':' + sec_s;
+    $('#timer_text').text(TimeString);
 }
