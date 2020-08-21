@@ -19,31 +19,31 @@ var info_text = ['避免在人員於室內時開啟，使用後加強室內通�
                  '使用綠建材標章產品; 使用中及使用完畢後，加強室內通風',
                  '水槽保持乾燥避免微生物孳生; 廁所內裝置排風扇有助於濕氣及異味排出']
 
+var max_item = 5;
 var list = [0, 1, 2, 3, 4, 5, 6, 7]
 
 $(document).ready(function () {
     initial_timer();
     var info = info_title[0] + "<br/>" + info_text[0];
     $('#explanation').html(info);
-    random_five();
 })
 
 function random_five() {
-    var tmp = list;
-    var cnt = tmp.length;
+    var shuffle = list;
+    var cnt = shuffle.length;
     var j = 0;
-    console.log("cnt: " + cnt);
 
     while (cnt--) {
+        // choose random position
         j = Math.floor(Math.random() * cnt);
-        console.log("j: " + j);
-        var swap = tmp[j];
-        console.log("swap: " + swap);
-        tmp[j] = tmp[cnt];
-        tmp[cnt] = swap;
+        
+        // swap value from chosen position to indicate position
+        var swap = shuffle[j];
+        shuffle[j] = shuffle[cnt];
+        shuffle[cnt] = swap;
     }
-
-    console.log(tmp);
+    
+    return shuffle;
 }
 
 function initial_timer() {
@@ -51,6 +51,7 @@ function initial_timer() {
     $('#timer_start_b').attr('disabled', false);
     $('#timer_text').text('2:00');
     timer_cnt = 1;
+    random_five();
 }
 
 function start_timer() {
