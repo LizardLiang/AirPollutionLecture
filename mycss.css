@@ -1,3 +1,9 @@
+.container_all {
+    width: 1280px;
+    height: 1024px;
+    background-color: aqua;
+}
+
 .container_1 {
     display: block;
 }
