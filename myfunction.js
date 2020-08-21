@@ -1,10 +1,50 @@
 var timer = 2 * 60; // timer for 2 mins
 var timer_cnt = 1;
 var timer_ID;
+var info_title = ['臭氧(O3)',
+                    '甲醛(HCHO)',
+                    '總揮發性有機化合物(TVOC)',
+                    '懸浮微粒(PM10)',
+                    '甲醛(HCHO)',
+                    '一氧化碳(CO)',
+                    '總揮發性有機化合物(TVOC)',
+                    '細菌(Bacteria)']
+
+var info_text = ['避免在人員於室內時開啟，使用後加強室內通風',
+                 '使用綠建材標章產品，並加強室內通風',
+                 '例行清潔應減少使用木質地板蠟; 使用中及使用完畢後，加強室內通風',
+                 '定期清潔地毯，避免灰塵累積',
+                 '使用綠建材標章產品; 置入期間加強室內通風',
+                 '使用瓦斯燃燒設備時，開啟抽油煙機並關閉同側窗戶',
+                 '使用綠建材標章產品; 使用中及使用完畢後，加強室內通風',
+                 '水槽保持乾燥避免微生物孳生; 廁所內裝置排風扇有助於濕氣及異味排出']
+
+var list = [0, 1, 2, 3, 4, 5, 6, 7]
 
 $(document).ready(function () {
     initial_timer();
+    var info = info_title[0] + "<br/>" + info_text[0];
+    $('#explanation').html(info);
+    random_five();
 })
+
+function random_five() {
+    var tmp = list;
+    var cnt = tmp.length;
+    var j = 0;
+    console.log("cnt: " + cnt);
+
+    while (cnt--) {
+        j = Math.floor(Math.random() * cnt);
+        console.log("j: " + j);
+        var swap = tmp[j];
+        console.log("swap: " + swap);
+        tmp[j] = tmp[cnt];
+        tmp[cnt] = swap;
+    }
+
+    console.log(tmp);
+}
 
 function initial_timer() {
     $('#timer_stop_b').attr('disabled', true);

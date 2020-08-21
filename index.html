@@ -2,16 +2,22 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="mycss.css">
+    <!--
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    -->
 </head>
 
 <body>
-    <div style="width: 100%">
-        <span id="timer_text">2:00</span>
-        <button id="timer_start_b" onclick="start_timer()">Start</button>
-        <button id="timer_stop_b" onclick="stop_timer()">Reset</button>
+    <div class="container_all">
+        <div style="width: 100%">
+            <span id="timer_text">2:00</span>
+            <button id="timer_start_b" onclick="start_timer()">Start</button>
+            <button id="timer_stop_b" onclick="stop_timer()">Reset</button>
+        </div>
+        <div>
+            <span id="explanation"></span>
+        </div>
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <script type="text/javascript" src="myfunction.js"></script>
-</body>
-
-</html>
+</body></html>
