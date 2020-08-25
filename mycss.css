@@ -36,3 +36,8 @@ button {
 #timer_text {
     font-size: 4vh;
 }
+
+img#pic{
+    max-width: 1280px;
+    max-height: 1024px;
+}

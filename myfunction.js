@@ -1,4 +1,4 @@
-var timer = 2 * 60; // timer for 2 mins
+var timer = 2 * 5; // timer for 2 mins
 var timer_cnt = 1;
 var timer_ID;
 var info_title = ['臭氧(O3)',
@@ -21,6 +21,7 @@ var info_text = ['避免在人員於室內時開啟，使用後加強室內通�
 
 var max_item = 5;
 var list = [0, 1, 2, 3, 4, 5, 6, 7]
+var pic_target = ['/image/Spiderman-1.jpg', '/image/Spiderman-2.jpeg']
 
 $(document).ready(function () {
     initial_timer();
@@ -36,13 +37,13 @@ function random_five() {
     while (cnt--) {
         // choose random position
         j = Math.floor(Math.random() * cnt);
-        
+
         // swap value from chosen position to indicate position
         var swap = shuffle[j];
         shuffle[j] = shuffle[cnt];
         shuffle[cnt] = swap;
     }
-    
+
     return shuffle;
 }
 
@@ -52,6 +53,7 @@ function initial_timer() {
     $('#timer_text').text('2:00');
     timer_cnt = 1;
     random_five();
+    clearInterval(timer_ID);
 }
 
 function start_timer() {
@@ -61,7 +63,6 @@ function start_timer() {
 }
 
 function stop_timer() {
-    clearInterval(timer_ID);
     initial_timer()
 }
 
@@ -69,8 +70,13 @@ function timer_tick() {
     SecToMin(timer - timer_cnt);
     timer_cnt++;
     if (timer_cnt > timer) {
-        initial_timer()
+        change_pic();
+        initial_timer();
     }
+}
+
+function change_pic() {
+    $('#pic').attr('src', '/image/Spiderman-2.jpeg');
 }
 
 function SecToMin(time) {
@@ -85,3 +91,6 @@ function SecToMin(time) {
     var TimeString = mins + ':' + sec_s;
     $('#timer_text').text(TimeString);
 }
+
+$('#pic').click(
+    e => e.target.src = pic_target[e.target.src.match(pic_target[0]) ? 1:0]);
