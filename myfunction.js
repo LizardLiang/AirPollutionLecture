@@ -102,4 +102,4 @@ function SecToMin(time) {
 
 // when picture is clicked toggle between two pics
 $('#pic').click(
-    e => e.target.src = pic_target[e.target.src.match(pic_target[0]) ? 1:0]);
+    e => e.target.src = pic_target[e.target.src.match(pic_target[0]) ? 1 : 0]);
