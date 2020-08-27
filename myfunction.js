@@ -1,3 +1,6 @@
+var origin_w = window.innerWidth;
+var origin_h = window.innerHeight;
+
 var timer = 2 * 5; // timer for 2 mins
 var timer_cnt = 1;
 var timer_ID;
@@ -30,9 +33,12 @@ var pic_target = ['/image/Spiderman-1.jpg', '/image/Spiderman-2.jpeg']
 
 $(document).ready(function () {
     // initial when loaded
+    origin_h = window.innerHeight;
+    origin_w = window.innerWidth;
     initial_timer();
     var info = info_title[0] + "<br/>" + info_text[0];
     $('#explanation').html(info);
+    console.log("1" + origin_w);
 })
 
 function random_five() {
@@ -103,3 +109,9 @@ function SecToMin(time) {
 // when picture is clicked toggle between two pics
 $('#pic').click(
     e => e.target.src = pic_target[e.target.src.match(pic_target[0]) ? 1 : 0]);
+
+window.addEventListener('resize', resize_container);
+
+function resize_container() {
+    // for resizing
+}

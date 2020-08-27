@@ -8,13 +8,19 @@
 
 <body>
     <div class="container_all">
-        <div style="width: 100%">
-            <span id="timer_text">2:00</span>
-            <button id="timer_start_b" onclick="start_timer()">Start</button>
-            <button id="timer_stop_b" onclick="stop_timer()">Reset</button>
+        <div id="hint_board">
+            <span>this section is used for show hint</span>
         </div>
         <div>
-            <img id="pic" src="/image/Spiderman-1.jpg"/>
+            <img id="pic" src="/image/Spiderman-1.jpg" />
+        </div>
+        <div id="foot">
+            <div style="width: 100%">
+                <span id="timer_text">2:00</span>
+                <button id="timer_start_b" onclick="start_timer()">Start</button>
+                <button id="timer_stop_b" onclick="stop_timer()">Reset</button>
+            </div>
+            <span>this section is used for score board and timer</span>
         </div>
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
