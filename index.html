@@ -12,7 +12,17 @@
             <span>this section is used for show hint</span>
         </div>
         <div>
-            <img id="pic" src="/image/Spiderman-1.jpg" />
+            <img id="pic" src="/image/Spiderman-1.jpg" usemap="#Mymap"/>
+            <map name="Mymap">
+                <area shape="rect" coords="20, 45, 320, 375" onclick="mapclick(1)">
+                <area shape="rect" coords="400, 45, 620, 375" onclick="mapclick(2)">
+                <area shape="rect" coords="720, 45, 820, 375" onclick="mapclick(3)">
+                <area shape="rect" coords="920, 45, 1220, 375" onclick="mapclick(4)">
+                <area shape="rect" coords="20, 630, 320, 985" onclick="mapclick(5)">
+                <area shape="rect" coords="400, 630, 620, 985" onclick="mapclick(6)">
+                <area shape="rect" coords="720, 630, 820, 985" onclick="mapclick(7)">
+                <area shape="rect" coords="920, 630, 1220, 985" onclick="mapclick(8)">
+            </map>
         </div>
         <div id="foot">
             <div style="width: 100%">
@@ -25,4 +35,6 @@
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <script type="text/javascript" src="myfunction.js"></script>
-</body></html>
+</body>
+
+</html>

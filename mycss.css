@@ -25,13 +25,13 @@
 p {
     visibility: hidden;
     text-align: center;
-    font-size: 4vh;
+    font-size: 10%;
 }
 
 button {
-    width: 15%;
-    height: auto;
-    font-size: 4vh;
+    width: 20%;
+    height: 50%;
+    font-size: 100%;
 }
 
 #timer_text {

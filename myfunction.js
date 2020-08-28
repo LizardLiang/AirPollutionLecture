@@ -107,11 +107,16 @@ function SecToMin(time) {
 }
 
 // when picture is clicked toggle between two pics
+/*
 $('#pic').click(
     e => e.target.src = pic_target[e.target.src.match(pic_target[0]) ? 1 : 0]);
-
+*/
 window.addEventListener('resize', resize_container);
 
 function resize_container() {
     // for resizing
+}
+
+function mapclick(count) {
+    console.log(count);
 }
