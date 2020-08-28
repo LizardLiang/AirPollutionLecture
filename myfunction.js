@@ -11,7 +11,7 @@ var info_title = ['臭氧(O3)',
                     '甲醛(HCHO)',
                     '一氧化碳(CO)',
                     '總揮發性有機化合物(TVOC)',
-                    '細菌(Bacteria)']
+                    '細菌(Bacteria)'];
 
 // information text
 var info_text = ['避免在人員於室內時開啟，使用後加強室內通風',
@@ -21,15 +21,69 @@ var info_text = ['避免在人員於室內時開啟，使用後加強室內通�
                  '使用綠建材標章產品; 置入期間加強室內通風',
                  '使用瓦斯燃燒設備時，開啟抽油煙機並關閉同側窗戶',
                  '使用綠建材標章產品; 使用中及使用完畢後，加強室內通風',
-                 '水槽保持乾燥避免微生物孳生; 廁所內裝置排風扇有助於濕氣及異味排出']
+                 '水槽保持乾燥避免微生物孳生; 廁所內裝置排風扇有助於濕氣及異味排出'];
 
+
+var previousCoords = [
+    [
+        20,
+        45,
+        320,
+        375
+    ],
+    [
+        400,
+        45,
+        620,
+        375
+    ],
+    [
+        720,
+        45,
+        820,
+        375
+    ],
+    [
+        920,
+        45,
+        1220,
+        375
+    ],
+    [
+        20,
+        630,
+        320,
+        985
+    ],
+    [
+        400,
+        630,
+        620,
+        985
+    ],
+    [
+        720,
+        630,
+        820,
+        985
+    ],
+    [
+        920,
+        630,
+        1220,
+        985
+    ]
+];
+
+var previousWidth = 1920,
+    previousHeight = 1024;
 
 // random number
 var max_item = 5;
-var list = [0, 1, 2, 3, 4, 5, 6, 7]
+var list = [0, 1, 2, 3, 4, 5, 6, 7];
 
 // pic dic
-var pic_target = ['/image/Spiderman-1.jpg', '/image/Spiderman-2.jpeg']
+var pic_target = ['/image/Spiderman-1.jpg', '/image/Spiderman-2.jpeg'];
 
 $(document).ready(function () {
     // initial when loaded
@@ -39,12 +93,50 @@ $(document).ready(function () {
     var info = info_title[0] + "<br/>" + info_text[0];
     $('#explanation').html(info);
     console.log("1" + origin_w);
-})
+});
+
+window.onload = function () {
+    var Imagemap = function (map, img) {
+            var n = 0,
+                areas = map.getElementsByTagName('area'),
+                length = areas.length,
+                coords = [];
+
+            for (n = 0; n < length; n++) {
+                // Get coords
+                console.log(areas[n].coords);
+                coords[n] = areas[n].coords.split(',');
+            }
+            this.resize = function () {
+                var n = 0,
+                    m, clen,
+                    nowWidth = $('#pic').innerWidth(),
+                    nowHeight = $('#pic').innerHeight(),
+                    ratioWidth = nowWidth / previousWidth,
+                    ratioHeight = nowHeight / previousHeight,
+                    ratio = ratioHeight > ratioWidth ? ratioWidth : ratioHeight;
+
+                console.log('NW: ' + nowWidth + '\nNH: ' + nowHeight + '\nPW: ' + previousWidth + '\nPH: ' + previousHeight + '\nRW: ' + ratioWidth + '\nRH: ' + ratioHeight);
+                for (n = 0; n < length; n++) {
+                    for (clen = 0; clen < 4; clen++) {
+                        coords[n][clen] = previousCoords[n][clen] * ratio;
+                    }
+                    areas[n].coords = coords[n].join(',');
+                    console.log(areas[n].coords);
+                }
+                return true;
+            };
+            window.onresize = this.resize;
+        },
+        imageMap = new Imagemap(document.getElementById('Mymap'), document.getElementById('pic'));
+    imageMap.resize();
+    return;
+}
 
 function random_five() {
-    var shuffle = list;
-    var cnt = shuffle.length;
-    var j = 0;
+    var shuffle = list,
+        cnt = shuffle.length,
+        j = 0;
 
     while (cnt--) {
         // choose random position
@@ -76,16 +168,7 @@ function start_timer() {
 }
 
 function stop_timer() {
-    initial_timer()
-}
-
-function timer_tick() {
-    SecToMin(timer - timer_cnt);
-    timer_cnt++;
-    if (timer_cnt > timer) {
-        change_pic();
-        initial_timer();
-    }
+    initial_timer();
 }
 
 function change_pic() {
@@ -106,6 +189,15 @@ function SecToMin(time) {
     $('#timer_text').text(TimeString);
 }
 
+function timer_tick() {
+    SecToMin(timer - timer_cnt);
+    timer_cnt++;
+    if (timer_cnt > timer) {
+        change_pic();
+        initial_timer();
+    }
+}
+
 // when picture is clicked toggle between two pics
 /*
 $('#pic').click(
@@ -115,6 +207,7 @@ window.addEventListener('resize', resize_container);
 
 function resize_container() {
     // for resizing
+
 }
 
 function mapclick(count) {
