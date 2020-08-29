@@ -1,7 +1,7 @@
 var origin_w = window.innerWidth;
 var origin_h = window.innerHeight;
 
-var timer = 2 * 5; // timer for 2 mins
+var timer = 2 * 60; // timer for 2 mins
 var timer_cnt = 1;
 var timer_ID;
 var info_title = ['臭氧(O3)',
@@ -92,7 +92,6 @@ $(document).ready(function () {
     initial_timer();
     var info = info_title[0] + "<br/>" + info_text[0];
     $('#explanation').html(info);
-    console.log("1" + origin_w);
 });
 
 window.onload = function () {
@@ -104,9 +103,9 @@ window.onload = function () {
 
             for (n = 0; n < length; n++) {
                 // Get coords
-                console.log(areas[n].coords);
                 coords[n] = areas[n].coords.split(',');
             }
+        
             this.resize = function () {
                 var n = 0,
                     m, clen,
@@ -115,22 +114,40 @@ window.onload = function () {
                     ratioWidth = nowWidth / previousWidth,
                     ratioHeight = nowHeight / previousHeight,
                     ratio = ratioHeight > ratioWidth ? ratioWidth : ratioHeight;
-
-                console.log('NW: ' + nowWidth + '\nNH: ' + nowHeight + '\nPW: ' + previousWidth + '\nPH: ' + previousHeight + '\nRW: ' + ratioWidth + '\nRH: ' + ratioHeight);
+                
                 for (n = 0; n < length; n++) {
                     for (clen = 0; clen < 4; clen++) {
                         coords[n][clen] = previousCoords[n][clen] * ratio;
                     }
                     areas[n].coords = coords[n].join(',');
-                    console.log(areas[n].coords);
                 }
+                
+                pic_resize(ratio);
                 return true;
             };
             window.onresize = this.resize;
         },
-        imageMap = new Imagemap(document.getElementById('Mymap'), document.getElementById('pic'));
+        imageMap = new Imagemap(document.getElementById('Mymap'), document.getElementById('pic'));          // set for first resize
+    
     imageMap.resize();
     return;
+}
+
+function pic_resize(ratio){
+    var originWidth = 300,
+        originHeight = 335,
+        originX = 20,
+        originY = 45,
+        curWidth = originWidth * ratio,
+        curHeight = originHeight * ratio,
+        curX = originX * ratio,
+        curY = originY * ratio;
+    
+    $('#pic_1').css('width', curWidth);
+    $('#pic_1').css('height', curHeight);
+    $('#pic_1').css('top', curY);
+    $('#pic_1').css('left', curX);
+    
 }
 
 function random_five() {
@@ -203,12 +220,6 @@ function timer_tick() {
 $('#pic').click(
     e => e.target.src = pic_target[e.target.src.match(pic_target[0]) ? 1 : 0]);
 */
-window.addEventListener('resize', resize_container);
-
-function resize_container() {
-    // for resizing
-
-}
 
 function mapclick(count) {
     console.log(count);

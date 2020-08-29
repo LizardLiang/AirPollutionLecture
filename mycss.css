@@ -52,6 +52,64 @@ div#foot {
     border: solid 2px black;
 }
 
-area:hover {
-    border: 5px #f00 solid;
+div.area_border {
+    border: solid 4px black;
+    position: absolute;
+    pointer-events: none;
+}
+
+div#pic_1{
+    left: 1.04%;
+    top: 4.4%;
+    width: 15.6%;
+    height: 33.3%;
+}
+
+div#pic_2{
+    left: 20.8%;
+    top: 4.4%;
+    width: 11.5%;
+    height: 33.3%;
+}
+
+div#pic_3{
+    left: 37.5%;
+    top: 4.4%;
+    width: 5.2%;
+    height: 33.3%;
+}
+
+div#pic_4{
+    left: 47.92%;
+    top: 4.4%;
+    width: 15.6%;
+    height: 33.3%;
+}
+
+div#pic_5{
+    left: 1.04%;
+    top: 62%;
+    width: 15.6%;
+    height: 33.3%;
+}
+
+div#pic_6{
+    left: 20.8%;
+    top: 62%;
+    width: 11.5%;
+    height: 33.3%;
+}
+
+div#pic_7{
+    left: 37.5%;
+    top: 62%;
+    width: 5.2%;
+    height: 33.3%;
+}
+
+div#pic_8{
+    left: 47.92%;
+    top: 62%;
+    width: 15.6%;
+    height: 33.3%;
 }
