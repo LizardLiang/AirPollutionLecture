@@ -122,7 +122,6 @@ window.onload = function () {
                     areas[n].coords = coords[n].join(',');
                 }
                 
-                pic_resize(ratio);
                 return true;
             };
             window.onresize = this.resize;
@@ -131,23 +130,6 @@ window.onload = function () {
     
     imageMap.resize();
     return;
-}
-
-function pic_resize(ratio){
-    var originWidth = 300,
-        originHeight = 335,
-        originX = 20,
-        originY = 45,
-        curWidth = originWidth * ratio,
-        curHeight = originHeight * ratio,
-        curX = originX * ratio,
-        curY = originY * ratio;
-    
-    $('#pic_1').css('width', curWidth);
-    $('#pic_1').css('height', curHeight);
-    $('#pic_1').css('top', curY);
-    $('#pic_1').css('left', curX);
-    
 }
 
 function random_five() {
@@ -215,12 +197,11 @@ function timer_tick() {
     }
 }
 
-// when picture is clicked toggle between two pics
-/*
-$('#pic').click(
-    e => e.target.src = pic_target[e.target.src.match(pic_target[0]) ? 1 : 0]);
-*/
-
 function mapclick(count) {
-    console.log(count);
+    var name = 'pic_' + count;
+    if (document.getElementById(name).style.backgroundColor == ""){
+        $('#' + name).css('background-color','violet');
+    }
+    else
+        $('#' + name).css('background-color','');
 }
