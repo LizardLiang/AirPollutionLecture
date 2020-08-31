@@ -215,12 +215,12 @@ function mapclick(count) {
 
 function T_box_click(count){
     // Set current index
-    current_index = count - 1;
+    current_index = count;
     
     // Set class to every tool to make it visual
-    for (var i = 0; i < 8; i++){
+    for (var i = 0; i < 9; i++){
         var id_name = "tool_" + i;
-        if (i === (count - 1){
+        if (i === (count)){
             // use class to set bg instead of using css directly
             $('#' + id_name).removeClass('tools');
             $('#' + id_name).addClass('greyBg');
