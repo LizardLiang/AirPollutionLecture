@@ -27,3 +27,5 @@ Date: 20200828
 
 3. 為了計算Map 的座標, 需要先知道原圖大小後, 比較現圖的大小, 計算出比例, 必算出縮放後的原點座標, 以及新長寬
    並寫入到 Map 當中。
+   
+4. pointer-events: none; use this line to cancell element event acception
