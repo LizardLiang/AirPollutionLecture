@@ -197,11 +197,29 @@ function timer_tick() {
     }
 }
 
+var current_index = 0;
 function mapclick(count) {
+    if (count != current_index){
+        return;
+    }
     var name = 'pic_' + count;
     if (document.getElementById(name).style.backgroundColor == ""){
         $('#' + name).css('background-color','violet');
     }
     else
         $('#' + name).css('background-color','');
+}
+
+function T_box_click(count){
+    current_index = count;
+    for (var i = 0; i < 8; i++){
+        var id_name = "tool_" + i;
+        if (i === count){
+            $('#' + id_name).removeClass('tools');
+            $('#' + id_name).addClass('greyBg');
+        }
+        else
+            $('#' + id_name).removeClass('greyBg');
+            $('#' + id_name).addClass('tools');
+    }
 }
