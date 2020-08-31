@@ -199,9 +199,12 @@ function timer_tick() {
 
 var current_index = 0;
 function mapclick(count) {
+    
+    // if it's not current index do nthing
     if (count != current_index){
         return;
     }
+    
     var name = 'pic_' + count;
     if (document.getElementById(name).style.backgroundColor == ""){
         $('#' + name).css('background-color','violet');
@@ -211,10 +214,14 @@ function mapclick(count) {
 }
 
 function T_box_click(count){
-    current_index = count;
+    // Set current index
+    current_index = count - 1;
+    
+    // Set class to every tool to make it visual
     for (var i = 0; i < 8; i++){
         var id_name = "tool_" + i;
-        if (i === count){
+        if (i === (count - 1){
+            // use class to set bg instead of using css directly
             $('#' + id_name).removeClass('tools');
             $('#' + id_name).addClass('greyBg');
         }

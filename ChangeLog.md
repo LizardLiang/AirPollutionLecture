@@ -27,3 +27,8 @@ Date: 20200828
 
 3. 為了計算Map 的座標, 需要先知道原圖大小後, 比較現圖的大小, 計算出比例, 必算出縮放後的原點座標, 以及新長寬
    並寫入到 Map 當中。
+   
+4. 字置中 -> 選擇 display: flex; justify-content: center; align-items: center;
+
+5. 如果想要切換背景顏色 最好是更改他的class 而不是用set 的方式，會導致之前設定的其他效果被覆蓋
+    使用 $().removeClass() Or $().addClass()
