@@ -1,6 +1,3 @@
-var origin_w = window.innerWidth;
-var origin_h = window.innerHeight;
-
 var timer = 2 * 60; // timer for 2 mins
 var timer_cnt = 1;
 var timer_ID;
@@ -76,7 +73,7 @@ var previousCoords = [
 ];
 
 var previousWidth = 1920,
-    previousHeight = 1024;
+    previousHeight = 1005;
 
 // random number
 var max_item = 5;
@@ -87,8 +84,6 @@ var pic_target = ['/image/Spiderman-1.jpg', '/image/Spiderman-2.jpeg'];
 
 $(document).ready(function () {
     // initial when loaded
-    origin_h = window.innerHeight;
-    origin_w = window.innerWidth;
     initial_timer();
     var info = info_title[0] + "<br/>" + info_text[0];
     $('#explanation').html(info);
@@ -105,29 +100,34 @@ window.onload = function () {
                 // Get coords
                 coords[n] = areas[n].coords.split(',');
             }
-        
+
             this.resize = function () {
                 var n = 0,
                     m, clen,
-                    nowWidth = $('#pic').innerWidth(),
-                    nowHeight = $('#pic').innerHeight(),
+                    nowWidth = $('#pic').outerWidth(),
+                    nowHeight = $('#pic').outerHeight(),
                     ratioWidth = nowWidth / previousWidth,
                     ratioHeight = nowHeight / previousHeight,
                     ratio = ratioHeight > ratioWidth ? ratioWidth : ratioHeight;
                 
+                
                 for (n = 0; n < length; n++) {
                     for (clen = 0; clen < 4; clen++) {
-                        coords[n][clen] = previousCoords[n][clen] * ratio;
+                        if(clen % 2 === 0)
+                            coords[n][clen] = previousCoords[n][clen] * ratioWidth;
+                        else
+                            coords[n][clen] = previousCoords[n][clen] * ratioHeight;
                     }
                     areas[n].coords = coords[n].join(',');
                 }
-                
+                console.log(coords[2][0]);
+
                 return true;
             };
             window.onresize = this.resize;
         },
-        imageMap = new Imagemap(document.getElementById('Mymap'), document.getElementById('pic'));          // set for first resize
-    
+        imageMap = new Imagemap(document.getElementById('Mymap'), document.getElementById('pic')); // set for first resize
+
     imageMap.resize();
     return;
 }
@@ -198,35 +198,34 @@ function timer_tick() {
 }
 
 var current_index = 0;
+
 function mapclick(count) {
-    
+
     // if it's not current index do nthing
-    if (count != current_index){
+    if (count != current_index) {
         return;
     }
-    
+
     var name = 'pic_' + count;
-    if (document.getElementById(name).style.backgroundColor == ""){
-        $('#' + name).css('background-color','violet');
-    }
-    else
-        $('#' + name).css('background-color','');
+    if (document.getElementById(name).style.backgroundColor == "") {
+        $('#' + name).css('background-color', 'violet');
+    } else
+        $('#' + name).css('background-color', '');
 }
 
-function T_box_click(count){
+function T_box_click(count) {
     // Set current index
     current_index = count;
-    
+
     // Set class to every tool to make it visual
-    for (var i = 0; i < 9; i++){
+    for (var i = 0; i < 9; i++) {
         var id_name = "tool_" + i;
-        if (i === (count)){
+        if (i === (count)) {
             // use class to set bg instead of using css directly
             $('#' + id_name).removeClass('tools');
             $('#' + id_name).addClass('greyBg');
-        }
-        else
+        } else
             $('#' + id_name).removeClass('greyBg');
-            $('#' + id_name).addClass('tools');
+        $('#' + id_name).addClass('tools');
     }
 }
