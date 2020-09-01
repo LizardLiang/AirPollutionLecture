@@ -39,9 +39,24 @@ button {
 }
 
 img#pic {
-    max-width: 1280px;
-    max-height: 1024px;
+    /*max-width: 1280px;
+    max-height: 670px;*/
     width: 100%;
+    height: 100%;
+}
+
+img.r_sunk {
+    position: absolute;
+    top: 47.8%;
+    left: 68.5%;
+}
+
+img.r_stove {
+    position: absolute;
+    top: 50.8%;
+    left: 91.2%;
+    width: 112px;
+    height: 181.306640625px;
 }
 
 div#hint_board,
@@ -50,68 +65,6 @@ div#foot {
     height: 10%;
     width: 100%;
     border: solid 2px black;
-}
-
-div.area_border {
-    border: solid 4px black;
-    position: absolute;
-    pointer-events: none;
-}
-
-div#pic_1 {
-    left: 1.04166666666667%;
-    top: 4.4%;
-    width: 15.625%;
-    height: 32.83582089552239%;
-}
-
-div#pic_2 {
-    left: 20.83333333333333%;
-    top: 4.4%;
-    width: 11.45833333333333%;
-    height: 32.83582089552239%;
-}
-
-div#pic_3 {
-    left: 37.5%;
-    top: 4.4%;
-    width: 5.20833333333333%;
-    height: 32.83582089552239%;
-}
-
-div#pic_4 {
-    left: 47.92%;
-    top: 4.4%;
-    width: 15.625%;
-    height: 32.83582089552239%;
-}
-
-div#pic_5 {
-    left: 1.04166666666667%;
-    top: 62.6865671641791%;
-    width: 15.625%;
-    height: 32.83582089552239%;
-}
-
-div#pic_6 {
-    left: 20.83333333333333%;
-    top: 62.6865671641791%;
-    width: 11.45833333333333%;
-    height: 32.83582089552239%;
-}
-
-div#pic_7 {
-    left: 37.5%;
-    top: 62.6865671641791%;
-    width: 5.20833333333333%;
-    height: 32.83582089552239%;
-}
-
-div#pic_8 {
-    left: 47.92%;
-    top: 62.6865671641791%;
-    width: 15.625%;
-    height: 32.83582089552239%;
 }
 
 div#tool_box {
@@ -153,4 +106,37 @@ div.greyBg {
 
 div.tools:hover {
     background-color: grey;
+}
+
+.anime {
+    background-color: brown;
+    width: 5%;
+    border-radius: 50px;
+    animation-name: anime;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+.anime:after {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+@keyframes anime {
+    0% {
+        background-color: red;
+    }
+
+    25% {
+        background-color: yellow;
+    }
+
+    50% {
+        background-color: blue;
+    }
+
+    100% {
+        background-color: red;
+    }
 }
