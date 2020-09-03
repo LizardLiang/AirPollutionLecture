@@ -38,25 +38,62 @@ button {
     font-size: 4vh;
 }
 
+div#pic_container{
+    max-width: 1280px;
+    max-height: 670px;
+}
+
+/* origin size 1280 x 1024 */
 img#pic {
-    /*max-width: 1280px;
-    max-height: 670px;*/
+    max-width: 1280px;
+    max-height: 670px;
     width: 100%;
     height: 100%;
 }
 
+/* origin size 101 x 78 */
+/* position x 876.797, y 455.531 */
 img.r_sunk {
     position: absolute;
     top: 47.8%;
     left: 68.5%;
+    width: 7.890625%;
+    height: 7.6171875%;
 }
 
+/* origin size 112 x 194 */
+/* position x 1167.36, y 490.701 */
 img.r_stove {
     position: absolute;
-    top: 50.8%;
+    top: 51.5%;
     left: 91.2%;
-    width: 112px;
-    height: 181.306640625px;
+    width: 8.75%;
+    height: 18.9453125%;
+}
+
+/* origin size 454 x 653 */
+/* origin is too big change to 112 x 159.984 */
+/* position x 125.438, y 194.56 */
+img.r_paint {
+    position: absolute;
+    top: 19%;
+    left: 9.8%;
+    height: 25%;
+    width: 8.75%;
+}
+
+/* origin size 107 x 191 */
+/* position x 1173.75, y 276.48 */
+img.r_hood{
+    position: absolute;
+    top: 27%;
+    left: 91.7%;
+    width: 8.359375%;
+    height: 18.65234375%;
+}
+
+img.no_event {
+    pointer-events: none;
 }
 
 div#hint_board,
@@ -109,12 +146,23 @@ div.tools:hover {
 }
 
 .anime {
-    background-color: brown;
+    background: #9c9e9f;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #9c9e9f 0%, #f6f6f6 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #9c9e9f), color-stop(100%, #f6f6f6));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, #9c9e9f 0%, #f6f6f6 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, #9c9e9f 0%, #f6f6f6 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, #9c9e9f 0%, #f6f6f6 100%);
+    /* IE10+ */
+    background: linear-gradient(to right, #9c9e9f 0%, #f6f6f6 100%);
+    /* W3C */
     width: 5%;
     border-radius: 50px;
-    animation-name: anime;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
+    animation: anime 1s linear infinite;
 }
 
 .anime:after {
@@ -124,19 +172,7 @@ div.tools:hover {
 }
 
 @keyframes anime {
-    0% {
-        background-color: red;
-    }
-
-    25% {
-        background-color: yellow;
-    }
-
-    50% {
-        background-color: blue;
-    }
-
-    100% {
-        background-color: red;
+    to {
+        transform: rotate(360deg);
     }
 }
