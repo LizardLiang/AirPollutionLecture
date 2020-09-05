@@ -87,13 +87,13 @@ var previousWidth = 1280,
 var max_item = 5;
 var list = [0, 1, 2, 3, 4, 5, 6, 7];
 
-class items{
+class items {
     enable_item = [false, false, false, false, false, false, false, false];
 }
 var item = new items();
 
 // pic dic
-var win_pic = 'image/win_0.png';
+var win_pic = ['image/win_0.png', 'image/win_1.png'];
 
 var array_f = ["#f_b_1", "#f_b_2", "#f_b_3"];
 var array_s = ["#s_b_1", "#s_b_2", "#s_b_3"];
@@ -153,6 +153,7 @@ function random_five() {
     var shuffle = list,
         cnt = shuffle.length,
         j = 0;
+    item = new items();
 
     while (cnt--) {
         // choose random position
@@ -163,18 +164,18 @@ function random_five() {
         shuffle[j] = shuffle[cnt];
         shuffle[cnt] = swap;
     }
-    
+
     // set enable items
-    for(var i = 0; i < 5; i++){
+    for (var i = 0; i < 5; i++) {
         item.enable_item[shuffle[i]] = true;
-        if(item.enable_item[shuffle[i]] === false){
+        if (item.enable_item[shuffle[i]] === false) {
             set_pic(shuffle[i]);
         }
     }
-    
+
     // if item is not enable change item pic
-    for(var i = 0; i < 8; i++){
-        if(item.enable_item[i] === false){
+    for (var i = 0; i < 8; i++) {
+        if (item.enable_item[i] === false) {
             set_pic(i + 1);
         }
     }
@@ -182,13 +183,45 @@ function random_five() {
 
 function initial_timer() {
     // initialize every component
+    
+    // initial button
     $('#timer_stop_b').attr('disabled', true);
     $('#timer_start_b').attr('disabled', false);
+    
+    // initial score board
     $('#timer_text').text('2:00');
+    var text = "Score 0/5";
+    $('#score').text(text);
+    
+    // intial picture
+    initial_pic();
+    
+    // initial counter
     timer_cnt = 1;
     score = 0;
+    
+    // initial shuffle
     random_five();
     clearInterval(timer_ID);
+}
+
+function initial_pic() {
+    $('#sunk').css('visibility', 'visible');
+    $('#hood').attr('src', "image/hood_1.png");
+    $('#paint').css('visibility', 'visible');
+    $('#win').attr('src', win_pic[1]);
+    var len = array_s.length;
+    for (var i = 0; i < len; i++) {
+        $(array_s[i]).css('visibility', 'visible');
+    }
+    var len = array_c.length;
+    for (var i = 0; i < len; i++) {
+        $(array_c[i]).css('visibility', 'visible');
+    }
+    var len = array_f.length;
+    for (var i = 0; i < len; i++) {
+        $(array_f[i]).css('visibility', 'visible');
+    }
 }
 
 function start_timer() {
@@ -232,19 +265,19 @@ var current_index = 0;
 
 function mapclick(serial) {
     // return if game is set or item is not enable
-    if(score >= 5 || item.enable_item[serial - 1] === false)
+    if (score >= 5 || item.enable_item[serial - 1] === false)
         return;
     item.enable_item[serial - 1] = false;
-    
+
     // set picture
     set_pic(serial);
-    
+
     // set score board
     set_score();
 }
 
 // this function is use to set picture to normal mode
-function set_pic(serial){
+function set_pic(serial) {
     switch (serial) {
         case 1:
             $('#sunk').css('visibility', 'hidden');
@@ -256,23 +289,23 @@ function set_pic(serial){
             $('#paint').css('visibility', 'hidden');
             break;
         case 4:
-            $('#win').attr('src', win_pic);
+            $('#win').attr('src', win_pic[0]);
             break;
         case 5:
             var len = array_s.length;
-            for (var i = 0; i < len; i++){
+            for (var i = 0; i < len; i++) {
                 $(array_s[i]).css('visibility', 'hidden');
             }
             break;
         case 6:
             var len = array_c.length;
-            for (var i = 0; i < len; i++){
+            for (var i = 0; i < len; i++) {
                 $(array_c[i]).css('visibility', 'hidden');
             }
             break;
         case 7:
             var len = array_f.length;
-            for (var i = 0; i < len; i++){
+            for (var i = 0; i < len; i++) {
                 $(array_f[i]).css('visibility', 'hidden');
             }
             break;
@@ -282,17 +315,20 @@ function set_pic(serial){
 }
 
 var score = 0;
-function set_score(){
+
+function set_score() {
     score++;
     var text = "Score " + score + "/5";
     $('#score').text(text);
-    if (score >= 5){
+    if (score >= 5) {
         setTimeout(show_msg, 500);
     }
 }
 
-function show_msg(){
+function show_msg() {
     window.alert('Finish')
+    initial_timer();
+    console.log("initial");
 }
 
 function T_box_click(count) {
