@@ -45,10 +45,10 @@ var previousCoords = [
     ],
     [
         // window
-        920,
-        45,
-        1220,
-        375
+        583,
+        298,
+        761,
+        486
     ],
     [
         // shelf
@@ -87,8 +87,13 @@ var previousWidth = 1280,
 var max_item = 5;
 var list = [0, 1, 2, 3, 4, 5, 6, 7];
 
+class items{
+    enable_item = [false, false, false, false, false, false, false, false];
+}
+var item = new items();
+
 // pic dic
-var pic_target = ['/image/Spiderman-1.jpg', '/image/Spiderman-2.jpeg'];
+var win_pic = 'image/win_0.png';
 
 var array_f = ["#f_b_1", "#f_b_2", "#f_b_3"];
 var array_s = ["#s_b_1", "#s_b_2", "#s_b_3"];
@@ -158,8 +163,21 @@ function random_five() {
         shuffle[j] = shuffle[cnt];
         shuffle[cnt] = swap;
     }
-
-    return shuffle;
+    
+    // set enable items
+    for(var i = 0; i < 5; i++){
+        item.enable_item[shuffle[i]] = true;
+        if(item.enable_item[shuffle[i]] === false){
+            set_pic(shuffle[i]);
+        }
+    }
+    
+    // if item is not enable change item pic
+    for(var i = 0; i < 8; i++){
+        if(item.enable_item[i] === false){
+            set_pic(i + 1);
+        }
+    }
 }
 
 function initial_timer() {
@@ -213,10 +231,20 @@ function timer_tick() {
 var current_index = 0;
 
 function mapclick(serial) {
-    if (serial === 1) {
-        console.log('clicked');
-        $('#sunk').css('visibility', 'hidden');
-    }
+    // return if game is set or item is not enable
+    if(score >= 5 || item.enable_item[serial - 1] === false)
+        return;
+    item.enable_item[serial - 1] = false;
+    
+    // set picture
+    set_pic(serial);
+    
+    // set score board
+    set_score();
+}
+
+// this function is use to set picture to normal mode
+function set_pic(serial){
     switch (serial) {
         case 1:
             $('#sunk').css('visibility', 'hidden');
@@ -228,6 +256,7 @@ function mapclick(serial) {
             $('#paint').css('visibility', 'hidden');
             break;
         case 4:
+            $('#win').attr('src', win_pic);
             break;
         case 5:
             var len = array_s.length;
@@ -250,7 +279,6 @@ function mapclick(serial) {
         case 8:
             break;
     }
-    set_score();
 }
 
 var score = 0;

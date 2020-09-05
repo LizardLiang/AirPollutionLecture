@@ -48,14 +48,14 @@ img#pic {
     height: 100%;
 }
 
-/* origin size 101 x 78 */
+/* origin size 71 x 14 */
 /* position x 876.797, y 455.531 */
 img.r_sunk {
     position: absolute;
-    top: 47.8%;
-    left: 68.5%;
-    width: 7.890625%;
-    height: 7.6171875%;
+    top: 50.8%;
+    left: 69.2%;
+    width: 5.546875%;
+    height: 1.3671875%;
 }
 
 /* origin size 112 x 194 */
@@ -93,10 +93,10 @@ img.r_hood {
 /* position x 1173.75, y 276.48 */
 img.r_win {
     position: absolute;
-    top: 27%;
-    left: 50%;
-    width: 8.359375%;
-    height: 18.65234375%;
+    top: 29%;
+    left: 45%;
+    width: 15.625%;
+    height: 20.01953125%;
 }
 
 img.s_b_1 {
