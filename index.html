@@ -46,10 +46,21 @@
             </div>
         </div>
         <div id="foot">
-            <span id="timer_text">2:00</span>
-            <button id="timer_start_b" onclick="start_timer()">Start</button>
-            <button id="timer_stop_b" onclick="stop_timer()">Reset</button>
-            <span id="score_board">Score: 0 / 5</span>
+            <div>
+                <span id="timer_text">2:00</span>
+            </div>
+            <div>
+                <button id="timer_start_b" onclick="start_timer()">Start</button>
+            </div>
+            <div>
+                <button id="timer_stop_b" onclick="stop_timer()">Reset</button>
+            </div>
+            <div>
+                <svg width="100%" height="100%" viewBox="0 0 100% 100%">
+                    <text id="score" x="20%" y="70%" font-size="3.5em">Score 0/5</text>
+                </svg>
+            </div>
+            <!--            <span id="score_board">Score: 0 / 5</span>-->
         </div>
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>

@@ -40,8 +40,8 @@ var previousCoords = [
         // paint
         125.438,
         194.56,
-        579.438,
-        847.56
+        237,
+        268
     ],
     [
         // window
@@ -52,24 +52,24 @@ var previousCoords = [
     ],
     [
         // shelf
-        247,
-        405,
-        516,
-        705
+        250,
+        407,
+        520,
+        658
     ],
     [
         // carpet
-        195,
-        740,
+        190,
+        750,
         653,
         875
     ],
     [
         // floor
-        720,
-        630,
-        820,
-        985
+        656,
+        734,
+        1050,
+        1024
     ],
     [
         // airclean
@@ -89,6 +89,10 @@ var list = [0, 1, 2, 3, 4, 5, 6, 7];
 
 // pic dic
 var pic_target = ['/image/Spiderman-1.jpg', '/image/Spiderman-2.jpeg'];
+
+var array_f = ["#f_b_1", "#f_b_2", "#f_b_3"];
+var array_s = ["#s_b_1", "#s_b_2", "#s_b_3"];
+var array_c = ["#c_b_1", "#c_b_2", "#c_b_3"];
 
 $(document).ready(function () {
     // initial when loaded
@@ -164,6 +168,7 @@ function initial_timer() {
     $('#timer_start_b').attr('disabled', false);
     $('#timer_text').text('2:00');
     timer_cnt = 1;
+    score = 0;
     random_five();
     clearInterval(timer_ID);
 }
@@ -214,7 +219,6 @@ function mapclick(serial) {
     }
     switch (serial) {
         case 1:
-            console.log('clicked');
             $('#sunk').css('visibility', 'hidden');
             break;
         case 2:
@@ -223,15 +227,44 @@ function mapclick(serial) {
         case 3:
             $('#paint').css('visibility', 'hidden');
             break;
+        case 4:
+            break;
         case 5:
+            var len = array_s.length;
+            for (var i = 0; i < len; i++){
+                $(array_s[i]).css('visibility', 'hidden');
+            }
             break;
         case 6:
+            var len = array_c.length;
+            for (var i = 0; i < len; i++){
+                $(array_c[i]).css('visibility', 'hidden');
+            }
             break;
         case 7:
+            var len = array_f.length;
+            for (var i = 0; i < len; i++){
+                $(array_f[i]).css('visibility', 'hidden');
+            }
             break;
         case 8:
             break;
     }
+    set_score();
+}
+
+var score = 0;
+function set_score(){
+    score++;
+    var text = "Score " + score + "/5";
+    $('#score').text(text);
+    if (score >= 5){
+        setTimeout(show_msg, 500);
+    }
+}
+
+function show_msg(){
+    window.alert('Finish')
 }
 
 function T_box_click(count) {
