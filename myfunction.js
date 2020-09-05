@@ -23,57 +23,65 @@ var info_text = ['避免在人員於室內時開啟，使用後加強室內通�
 
 var previousCoords = [
     [
-        20,
-        45,
-        320,
-        375
+        // sunk
+        876.797,
+        489.472,
+        977.797,
+        567.472
     ],
     [
-        400,
-        45,
-        620,
-        375
+        // hoods
+        1173.75,
+        276.48,
+        1280.75,
+        467.48
     ],
     [
-        720,
-        45,
-        820,
-        375
+        // paint
+        125.438,
+        194.56,
+        579.438,
+        847.56
     ],
     [
+        // window
         920,
         45,
         1220,
         375
     ],
     [
-        20,
-        630,
-        320,
-        985
+        // shelf
+        247,
+        405,
+        516,
+        705
     ],
     [
-        400,
-        630,
-        620,
-        985
+        // carpet
+        195,
+        740,
+        653,
+        875
     ],
     [
+        // floor
         720,
         630,
         820,
         985
     ],
     [
-        920,
-        630,
-        1220,
-        985
+        // airclean
+        659,
+        560,
+        777,
+        725
     ]
 ];
 
-var previousWidth = 1920,
-    previousHeight = 1005;
+var previousWidth = 1280,
+    previousHeight = 1024;
 
 // random number
 var max_item = 5;
@@ -109,18 +117,18 @@ window.onload = function () {
                     ratioWidth = nowWidth / previousWidth,
                     ratioHeight = nowHeight / previousHeight,
                     ratio = ratioHeight > ratioWidth ? ratioWidth : ratioHeight;
-                
-                
+
+                console.log(nowHeight);
                 for (n = 0; n < length; n++) {
                     for (clen = 0; clen < 4; clen++) {
-                        if(clen % 2 === 0)
+                        if (clen % 2 === 0)
                             coords[n][clen] = previousCoords[n][clen] * ratioWidth;
                         else
                             coords[n][clen] = previousCoords[n][clen] * ratioHeight;
                     }
                     areas[n].coords = coords[n].join(',');
                 }
-                console.log(coords[2][0]);
+                console.log(coords[0][0] + ' ' + coords[0][1]);
 
                 return true;
             };
@@ -199,18 +207,31 @@ function timer_tick() {
 
 var current_index = 0;
 
-function mapclick(count) {
-
-    // if it's not current index do nthing
-    if (count != current_index) {
-        return;
+function mapclick(serial) {
+    if (serial === 1) {
+        console.log('clicked');
+        $('#sunk').css('visibility', 'hidden');
     }
-
-    var name = 'pic_' + count;
-    if (document.getElementById(name).style.backgroundColor == "") {
-        $('#' + name).css('background-color', 'violet');
-    } else
-        $('#' + name).css('background-color', '');
+    switch (serial) {
+        case 1:
+            console.log('clicked');
+            $('#sunk').css('visibility', 'hidden');
+            break;
+        case 2:
+            $('#hood').attr('src', "image/hood_0.png");
+            break;
+        case 3:
+            $('#paint').css('visibility', 'hidden');
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+    }
 }
 
 function T_box_click(count) {

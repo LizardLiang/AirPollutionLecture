@@ -38,10 +38,144 @@ button {
     font-size: 4vh;
 }
 
-img#pic {
+div#pic_container{
     max-width: 1280px;
-    max-height: 1024px;
+    max-height: 670px;
     width: 100%;
+    height: 100%;
+}
+
+/* origin size 1280 x 1024 */
+img#pic {
+    width: 100%;
+    height: 100%;
+}
+
+/* origin size 101 x 78 */
+/* position x 876.797, y 455.531 */
+img.r_sunk {
+    position: absolute;
+    top: 47.8%;
+    left: 68.5%;
+    width: 7.890625%;
+    height: 7.6171875%;
+}
+
+/* origin size 112 x 194 */
+/* position x 1167.36, y 490.701 */
+img.r_stove {
+    position: absolute;
+    top: 51.5%;
+    left: 91.2%;
+    width: 8.75%;
+    height: 18.9453125%;
+}
+
+/* origin size 454 x 653 */
+/* origin is too big change to 112 x 159.984 */
+/* position x 125.438, y 194.56 */
+img.r_paint {
+    position: absolute;
+    top: 19%;
+    left: 9.8%;
+    height: 25%;
+    width: 8.75%;
+}
+
+/* origin size 107 x 191 */
+/* position x 1173.75, y 276.48 */
+img.r_hood{
+    position: absolute;
+    top: 27%;
+    left: 91.7%;
+    width: 8.359375%;
+    height: 18.65234375%;
+}
+
+/* origin size 200 x 205 */
+/* position x 1173.75, y 276.48 */
+img.r_win{
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    width: 8.359375%;
+    height: 18.65234375%;
+}
+
+img.s_b_1 {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    width:6%;
+    height: 8%;
+}
+
+img.s_b_2 {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    width:6%;
+    height: 8%;
+}
+
+img.s_b_3 {
+    position: absolute;
+    top: 52%;
+    left: 28%;
+    width:6%;
+    height: 8%;
+}
+
+img.c_b_1 {
+    position: absolute;
+    top: 73%;
+    left: 20%;
+    width:6%;
+    height: 8%;
+}
+
+img.c_b_2 {
+    position: absolute;
+    top: 73%;
+    left: 45%;
+    width:6%;
+    height: 8%;
+}
+
+img.c_b_3 {
+    position: absolute;
+    top: 78%;
+    left: 31%;
+    width:6%;
+    height: 8%;
+}
+
+img.f_b_1 {
+    position: absolute;
+    top: 90%;
+    left: 60%;
+    width:6%;
+    height: 8%;
+}
+
+img.f_b_2 {
+    position: absolute;
+    top: 80%;
+    left: 75%;
+    width:6%;
+    height: 8%;
+}
+
+img.f_b_3 {
+    position: absolute;
+    top: 69%;
+    left: 66%;
+    width:6%;
+    height: 8%;
+}
+
+img.no_event {
+    pointer-events: none;
 }
 
 div#hint_board,
@@ -50,68 +184,6 @@ div#foot {
     height: 10%;
     width: 100%;
     border: solid 2px black;
-}
-
-div.area_border {
-    border: solid 4px black;
-    position: absolute;
-    pointer-events: none;
-}
-
-div#pic_1 {
-    left: 1.04166666666667%;
-    top: 4.4%;
-    width: 15.625%;
-    height: 32.83582089552239%;
-}
-
-div#pic_2 {
-    left: 20.83333333333333%;
-    top: 4.4%;
-    width: 11.45833333333333%;
-    height: 32.83582089552239%;
-}
-
-div#pic_3 {
-    left: 37.5%;
-    top: 4.4%;
-    width: 5.20833333333333%;
-    height: 32.83582089552239%;
-}
-
-div#pic_4 {
-    left: 47.92%;
-    top: 4.4%;
-    width: 15.625%;
-    height: 32.83582089552239%;
-}
-
-div#pic_5 {
-    left: 1.04166666666667%;
-    top: 62.6865671641791%;
-    width: 15.625%;
-    height: 32.83582089552239%;
-}
-
-div#pic_6 {
-    left: 20.83333333333333%;
-    top: 62.6865671641791%;
-    width: 11.45833333333333%;
-    height: 32.83582089552239%;
-}
-
-div#pic_7 {
-    left: 37.5%;
-    top: 62.6865671641791%;
-    width: 5.20833333333333%;
-    height: 32.83582089552239%;
-}
-
-div#pic_8 {
-    left: 47.92%;
-    top: 62.6865671641791%;
-    width: 15.625%;
-    height: 32.83582089552239%;
 }
 
 div#tool_box {
@@ -153,4 +225,36 @@ div.greyBg {
 
 div.tools:hover {
     background-color: grey;
+}
+
+.anime {
+    background: #9c9e9f;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #9c9e9f 0%, #f6f6f6 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #9c9e9f), color-stop(100%, #f6f6f6));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, #9c9e9f 0%, #f6f6f6 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, #9c9e9f 0%, #f6f6f6 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, #9c9e9f 0%, #f6f6f6 100%);
+    /* IE10+ */
+    background: linear-gradient(to right, #9c9e9f 0%, #f6f6f6 100%);
+    /* W3C */
+    width: 5%;
+    border-radius: 50px;
+    animation: anime 1s linear infinite;
+}
+
+.anime:after {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+@keyframes anime {
+    to {
+        transform: rotate(360deg);
+    }
 }
