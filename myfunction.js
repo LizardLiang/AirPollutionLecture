@@ -234,11 +234,6 @@ function stop_timer() {
     initial_timer();
 }
 
-function change_pic() {
-    // set picture
-    $('#pic').attr('src', '/image/Spiderman-2.jpeg');
-}
-
 function SecToMin(time) {
     var mins = Math.floor(time / 60);
     var secs = time % 60;
@@ -256,7 +251,7 @@ function timer_tick() {
     SecToMin(timer - timer_cnt);
     timer_cnt++;
     if (timer_cnt > timer) {
-        change_pic();
+        window.alert("time up");
         initial_timer();
     }
 }
@@ -328,7 +323,6 @@ function set_score() {
 function show_msg() {
     window.alert('Finish')
     initial_timer();
-    console.log("initial");
 }
 
 function T_box_click(count) {
