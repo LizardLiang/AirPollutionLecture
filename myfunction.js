@@ -1,4 +1,4 @@
-var timer = 2 * 60; // timer for 2 mins
+var timer = 10; // timer for 2 mins
 var timer_cnt = 1;
 var timer_ID;
 var info_title = ['臭氧(O3)',
@@ -87,13 +87,14 @@ var previousWidth = 1280,
     previousHeight = 1024;
 
 // random number
-var max_item = 5;
 var list = [0, 1, 2, 3, 4, 5, 6, 7];
 
-class items {
-    enable_item = [false, false, false, false, false, false, false, false];
+/* Declare a class for initialize array */
+var Enable_item = function(){
+    this.item = [false, false, false, false, false, false, false, false];
 }
-var item = new items();
+
+var item = new Enable_item();
 
 // pic dic
 var win_pic = ['image/win_0.png', 'image/win_1.png'];
@@ -124,23 +125,22 @@ window.onload = function () {
             this.resize = function () {
                 var n = 0,
                     m, clen,
-                    nowWidth = $('#pic').outerWidth(),
-                    nowHeight = $('#pic').outerHeight(),
+                    nowWidth = $('#pic').css('width').replace('px', ''),
+                    nowHeight = $('#pic').css('height').replace('px', ''),
                     ratioWidth = nowWidth / previousWidth,
-                    ratioHeight = nowHeight / previousHeight,
-                    ratio = ratioHeight > ratioWidth ? ratioWidth : ratioHeight;
+                    ratioHeight = nowHeight / previousHeight;
+                console.log(nowWidth);
 
-                console.log(nowHeight);
                 for (n = 0; n < length; n++) {
                     for (clen = 0; clen < 4; clen++) {
-                        if (clen % 2 === 0)
+                        if ((clen % 2) === 0)
                             coords[n][clen] = previousCoords[n][clen] * ratioWidth;
-                        else
+                        else{
                             coords[n][clen] = previousCoords[n][clen] * ratioHeight;
+                        }
                     }
                     areas[n].coords = coords[n].join(',');
                 }
-                console.log(coords[0][0] + ' ' + coords[0][1]);
 
                 return true;
             };
@@ -156,7 +156,7 @@ function random_five() {
     var shuffle = list,
         cnt = shuffle.length,
         j = 0;
-    item = new items();
+    item = new Enable_item();
 
     while (cnt--) {
         // choose random position
@@ -170,15 +170,15 @@ function random_five() {
 
     // set enable items
     for (var i = 0; i < 5; i++) {
-        item.enable_item[shuffle[i]] = true;
-        if (item.enable_item[shuffle[i]] === false) {
-            set_pic(shuffle[i]);
+        item.item[shuffle[i]] = true;
+        if (item.item[shuffle[i]] === false) {
+            set_pic(shuffle[i], false);
         }
     }
 
     // if item is not enable change item pic
     for (var i = 0; i < 8; i++) {
-        if (item.enable_item[i] === false) {
+        if (item.item[i] === false) {
             set_pic(i + 1, false);
         }
     }
@@ -232,6 +232,7 @@ function initial_pic() {
 }
 
 function start_timer() {
+    console.log('start timer');
     $('#timer_start_b').attr('disabled', true);
     $('#timer_stop_b').attr('disabled', false);
     timer_ID = setInterval(timer_tick, 1000);
@@ -258,8 +259,14 @@ function timer_tick() {
     SecToMin(timer - timer_cnt);
     timer_cnt++;
     if (timer_cnt > timer) {
+        clearInterval(timer_ID);
+        for(var i = 0; i < item.item.length; i++){
+            if(item.item[i] === true){
+                set_pic(i + 1, true);
+            }
+        }
         window.alert("time up");
-        initial_timer();
+        //initial_timer();
     }
 }
 
@@ -267,18 +274,18 @@ var map = document.querySelector('map');
 map.addEventListener('click', function(e){
     mapclick(parseInt(e.target.id));
 }, false);
-
+/*
 map.addEventListener('touch', function(e){
     mapclick(parseInt(e.target.id));
 }, false);
-
+*/
 var current_index = 0;
 
 function mapclick(serial) {
     // return if game is set or item is not enable
-    if (score >= 5 || item.enable_item[serial - 1] === false)
+    if (score >= 5 || item.item[serial - 1] === false)
         return;
-    item.enable_item[serial - 1] = false;
+    item.item[serial - 1] = false;
 
     // set picture
     set_pic(serial, true);
@@ -335,6 +342,7 @@ function set_score() {
     $('#score').text(text);
     if (score >= 5) {
         setTimeout(show_msg, 500);
+        clearInterval(timer_ID);
     }
 }
 
@@ -342,7 +350,7 @@ function show_msg() {
     window.alert('Finish')
     initial_timer();
 }
-
+/*
 function T_box_click(count) {
     // Set current index
     current_index = count;
@@ -359,3 +367,4 @@ function T_box_click(count) {
         $('#' + id_name).addClass('tools');
     }
 }
+*/

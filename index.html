@@ -1,11 +1,9 @@
 <html>
-
 <head>
     <link rel="stylesheet" type="text/css" href="mycss.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
     <div class="container_all">
         <div id="pic_container" style="position: relative">
@@ -32,7 +30,7 @@
             </div>
             <img id="pic" src="image/room_0.jpg" usemap="#MyMap" />
             <img id="sunk" class="r_sunk no_event" src="image/sunk_1.png">
-            <img id="stove" class="r_stove" src="image/stove_1.png">
+            <img id="stove" class="r_stove no_event" src="image/stove_1.png">
             <img id="paint" class="r_paint no_event" src="image/paint.png" />
             <img id="hood" class="r_hood no_event" src="image/hood_1.png" />
             <img id="win" class="r_win no_event" src="image/win_1.png" />
@@ -68,7 +66,7 @@
         </div>
         <div id="foot">
             <div>
-                <svg width="100%" height="100%" viewBox="0 0 100% 100%">
+                <svg width="100%" height="100%" viewBox="0 0 100 100">
                     <text id="timer_text" x="20%" y="70%" font-size="3vw">2:00</text>
                 </svg>
             </div>
@@ -79,15 +77,16 @@
                 <button id="timer_stop_b" onclick="stop_timer()">重新開始</button>
             </div>
             <div>
-                <svg width="100%" height="100%" viewBox="0 0 100% 100%">
+                <svg width="100%" height="100%" viewBox="0 0 100 100">
                     <text id="score" x="20%" y="70%" font-size="3vw">得分: 0/5</text>
                 </svg>
             </div>
             <!--            <span id="score_board">Score: 0 / 5</span>-->
         </div>
     </div>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-    <script type="text/javascript" src="myfunction.js"></script>
 </body>
 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="myfunction.js"></script>
+<script src="http://192.168.6.39:8080/target/target-script-min.js"></script>
 </html>
