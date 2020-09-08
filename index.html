@@ -9,6 +9,27 @@
 <body>
     <div class="container_all">
         <div id="pic_container" style="position: relative">
+            <div id="info_sunk" class="speech-bubble">
+                <span>水槽保持乾燥避免微生物孳生; 廁所內裝置排風扇有助於濕氣及異味排出</span>
+            </div>
+            <div id="info_win" class="speech-bubble">
+                <span>避免在人員於室內時開啟，使用後加強室內通風</span>
+            </div>
+            <div id="info_shelf" class="speech-bubble">
+                <span>使用綠建材標章產品，並加強室內通風</span>
+            </div>
+            <div id="info_carpet" class="speech-bubble">
+                <span>定期清潔地毯，避免灰塵累積</span>
+            </div>
+            <div id="info_paint" class="speech-bubble-left">
+                <span>使用綠建材標章產品; 使用中及使用完畢後，加強室內通風</span>
+            </div>
+            <div id="info_hook" class="speech-bubble-right">
+                <span>使用瓦斯燃燒設備時，開啟抽油煙機並關閉同側窗戶</span>
+            </div>
+            <div id="info_floor" class="speech-bubble">
+                <span>使用綠建材標章產品，並加強室內通風</span>
+            </div>
             <img id="pic" src="image/room_0.jpg" usemap="#MyMap" />
             <img id="sunk" class="r_sunk no_event" src="image/sunk_1.png">
             <img id="stove" class="r_stove" src="image/stove_1.png">
@@ -25,14 +46,14 @@
             <img id="f_b_2" class="f_b_2 no_event" src="image/bac_2.png" />
             <img id="f_b_3" class="f_b_3 no_event" src="image/bac_3.png" />
             <map id="Mymap" name="MyMap">
-                <area shape="rect" coords="20, 45, 320, 375" onclick="mapclick(1)">
-                <area shape="rect" coords="400, 45, 620, 375" onclick="mapclick(2)">
-                <area shape="rect" coords="720, 45, 820, 375" onclick="mapclick(3)">
-                <area shape="rect" coords="920, 45, 1220, 375" onclick="mapclick(4)">
-                <area shape="rect" coords="20, 630, 320, 985" onclick="mapclick(5)">
-                <area shape="rect" coords="400, 630, 620, 985" onclick="mapclick(6)">
-                <area shape="rect" coords="720, 630, 820, 985" onclick="mapclick(7)">
-                <area shape="rect" coords="920, 630, 1220, 985" onclick="mapclick(8)">
+                <area id="1" shape="rect" coords="20, 45, 320, 375" >
+                <area id="2" shape="rect" coords="400, 45, 620, 375" >
+                <area id="3" shape="rect" coords="720, 45, 820, 375" >
+                <area id="4" shape="rect" coords="920, 45, 1220, 375" >
+                <area id="5" shape="rect" coords="20, 630, 320, 985" >
+                <area id="6" shape="rect" coords="400, 630, 620, 985" >
+                <area id="7" shape="rect" coords="720, 630, 820, 985" >
+                <area id="8" shape="rect" coords="920, 630, 1220, 985" >
             </map>
             <div id="tool_box" style="visibility: hidden;">
                 <div id="tool_1" class="tools" onclick="T_box_click(1)">1</div>
@@ -47,17 +68,19 @@
         </div>
         <div id="foot">
             <div>
-                <span id="timer_text">2:00</span>
+                <svg width="100%" height="100%" viewBox="0 0 100% 100%">
+                    <text id="timer_text" x="20%" y="70%" font-size="3vw">2:00</text>
+                </svg>
             </div>
             <div>
-                <button id="timer_start_b" onclick="start_timer()">Start</button>
+                <button id="timer_start_b" onclick="start_timer()">開始遊戲</button>
             </div>
             <div>
-                <button id="timer_stop_b" onclick="stop_timer()">Reset</button>
+                <button id="timer_stop_b" onclick="stop_timer()">重新開始</button>
             </div>
             <div>
                 <svg width="100%" height="100%" viewBox="0 0 100% 100%">
-                    <text id="score" x="20%" y="70%" font-size="3.5em">Score 0/5</text>
+                    <text id="score" x="20%" y="70%" font-size="3vw">得分: 0/5</text>
                 </svg>
             </div>
             <!--            <span id="score_board">Score: 0 / 5</span>-->
@@ -65,4 +88,6 @@
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <script type="text/javascript" src="myfunction.js"></script>
-</body></html>
+</body>
+
+</html>

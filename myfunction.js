@@ -21,6 +21,9 @@ var info_text = ['避免在人員於室內時開啟，使用後加強室內通�
                  '水槽保持乾燥避免微生物孳生; 廁所內裝置排風扇有助於濕氣及異味排出'];
 
 
+var info_array = ['#info_sunk', '#info_hook', '#info_paint', '#info_win', '#info_shelf', '#info_carpet', '#info_floor', ''];
+
+
 var previousCoords = [
     [
         // sunk
@@ -176,7 +179,7 @@ function random_five() {
     // if item is not enable change item pic
     for (var i = 0; i < 8; i++) {
         if (item.enable_item[i] === false) {
-            set_pic(i + 1);
+            set_pic(i + 1, false);
         }
     }
 }
@@ -190,7 +193,7 @@ function initial_timer() {
     
     // initial score board
     $('#timer_text').text('2:00');
-    var text = "Score 0/5";
+    var text = "得分: 0/5";
     $('#score').text(text);
     
     // intial picture
@@ -221,6 +224,10 @@ function initial_pic() {
     var len = array_f.length;
     for (var i = 0; i < len; i++) {
         $(array_f[i]).css('visibility', 'visible');
+    }
+    
+    for(var i = 0; i < info_array.length; i++){
+        $(info_array[i]).css('visibility', 'hidden');
     }
 }
 
@@ -256,6 +263,15 @@ function timer_tick() {
     }
 }
 
+var map = document.querySelector('map');
+map.addEventListener('click', function(e){
+    mapclick(parseInt(e.target.id));
+}, false);
+
+map.addEventListener('touch', function(e){
+    mapclick(parseInt(e.target.id));
+}, false);
+
 var current_index = 0;
 
 function mapclick(serial) {
@@ -265,14 +281,16 @@ function mapclick(serial) {
     item.enable_item[serial - 1] = false;
 
     // set picture
-    set_pic(serial);
+    set_pic(serial, true);
 
     // set score board
     set_score();
 }
 
 // this function is use to set picture to normal mode
-function set_pic(serial) {
+function set_pic(serial, isclick) {
+    if(isclick)
+        $(info_array[serial - 1]).css('visibility', 'visible');
     switch (serial) {
         case 1:
             $('#sunk').css('visibility', 'hidden');
@@ -313,7 +331,7 @@ var score = 0;
 
 function set_score() {
     score++;
-    var text = "Score " + score + "/5";
+    var text = "得分: " + score + "/5";
     $('#score').text(text);
     if (score >= 5) {
         setTimeout(show_msg, 500);
