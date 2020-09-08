@@ -21,7 +21,7 @@ var info_text = ['避免在人員於室內時開啟，使用後加強室內通�
                  '水槽保持乾燥避免微生物孳生; 廁所內裝置排風扇有助於濕氣及異味排出'];
 
 
-var info_array = ['#info_sunk', '#info_hook', '#info_paint', '#info_win', '#info_shelf', '#info_carpet', '#info_floor', '',]
+var info_array = ['#info_sunk', '#info_hook', '#info_paint', '#info_win', '#info_shelf', '#info_carpet', '#info_floor', ''];
 
 
 var previousCoords = [
@@ -262,6 +262,15 @@ function timer_tick() {
         initial_timer();
     }
 }
+
+var map = document.querySelector('map');
+map.addEventListener('click', function(e){
+    mapclick(parseInt(e.target.id));
+}, false);
+
+map.addEventListener('touch', function(e){
+    mapclick(parseInt(e.target.id));
+}, false);
 
 var current_index = 0;
 
