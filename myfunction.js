@@ -191,6 +191,7 @@ function initial_timer() {
     $('#timer_stop_b').attr('disabled', true);
     $('#timer_start_b').attr('disabled', false);
     
+    $('#message_box').css('visibility', 'hidden');
     // initial score board
     $('#timer_text').text('2:00');
     var text = "得分: 0/5";
@@ -232,13 +233,14 @@ function initial_pic() {
 }
 
 function start_timer() {
-    console.log('start timer');
     $('#timer_start_b').attr('disabled', true);
     $('#timer_stop_b').attr('disabled', false);
+    is_start = true;
     timer_ID = setInterval(timer_tick, 1000);
 }
 
 function stop_timer() {
+    is_start = false;
     initial_timer();
 }
 
@@ -280,10 +282,10 @@ map.addEventListener('touch', function(e){
 }, false);
 */
 var current_index = 0;
-
+var is_start = false;
 function mapclick(serial) {
     // return if game is set or item is not enable
-    if (score >= 5 || item.item[serial - 1] === false)
+    if (score >= 5 || item.item[serial - 1] === false || is_start === false)
         return;
     item.item[serial - 1] = false;
 
@@ -347,8 +349,8 @@ function set_score() {
 }
 
 function show_msg() {
-    window.alert('Finish')
-    initial_timer();
+    $('#message_box').css('visibility', 'visible');
+    //initial_timer();
 }
 /*
 function T_box_click(count) {

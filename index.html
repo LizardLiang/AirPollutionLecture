@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
     <div class="container_all">
         <div id="pic_container" style="position: relative">
@@ -22,7 +23,7 @@
             <div id="info_paint" class="speech-bubble-left">
                 <span>使用綠建材標章產品; 使用中及使用完畢後，加強室內通風</span>
             </div>
-            <div id="info_hook" class="speech-bubble-right">
+            <div id="info_hook" class="speech-bubble-right-0">
                 <span>使用瓦斯燃燒設備時，開啟抽油煙機並關閉同側窗戶</span>
             </div>
             <div id="info_floor" class="speech-bubble">
@@ -44,14 +45,14 @@
             <img id="f_b_2" class="f_b_2 no_event" src="image/bac_2.png" />
             <img id="f_b_3" class="f_b_3 no_event" src="image/bac_3.png" />
             <map id="Mymap" name="MyMap">
-                <area id="1" shape="rect" coords="20, 45, 320, 375" >
-                <area id="2" shape="rect" coords="400, 45, 620, 375" >
-                <area id="3" shape="rect" coords="720, 45, 820, 375" >
-                <area id="4" shape="rect" coords="920, 45, 1220, 375" >
-                <area id="5" shape="rect" coords="20, 630, 320, 985" >
-                <area id="6" shape="rect" coords="400, 630, 620, 985" >
-                <area id="7" shape="rect" coords="720, 630, 820, 985" >
-                <area id="8" shape="rect" coords="920, 630, 1220, 985" >
+                <area id="1" shape="rect" coords="20, 45, 320, 375">
+                <area id="2" shape="rect" coords="400, 45, 620, 375">
+                <area id="3" shape="rect" coords="720, 45, 820, 375">
+                <area id="4" shape="rect" coords="920, 45, 1220, 375">
+                <area id="5" shape="rect" coords="20, 630, 320, 985">
+                <area id="6" shape="rect" coords="400, 630, 620, 985">
+                <area id="7" shape="rect" coords="720, 630, 820, 985">
+                <area id="8" shape="rect" coords="920, 630, 1220, 985">
             </map>
             <div id="tool_box" style="visibility: hidden;">
                 <div id="tool_1" class="tools" onclick="T_box_click(1)">1</div>
@@ -65,28 +66,27 @@
             </div>
         </div>
         <div id="foot">
-            <div>
-                <svg width="100%" height="100%" viewBox="0 0 100 100">
-                    <text id="timer_text" x="20%" y="70%" font-size="3vw">2:00</text>
-                </svg>
-            </div>
-            <div>
+            <svg width="25%" height="95%">
+                <text x="0%" y="35%" font-size="2.5vw">計時器</text>
+                <text id="timer_text" x="50%" y="80%" font-size="3vw">2:00</text>
+            </svg>
+            <div width="25%" height="100%">
                 <button id="timer_start_b" onclick="start_timer()">開始遊戲</button>
             </div>
-            <div>
+            <div width="25%" height="100%">
                 <button id="timer_stop_b" onclick="stop_timer()">重新開始</button>
             </div>
-            <div>
-                <svg width="100%" height="100%" viewBox="0 0 100 100">
-                    <text id="score" x="20%" y="70%" font-size="3vw">得分: 0/5</text>
-                </svg>
-            </div>
+            <svg width="25%" height="95%">
+                <text id="score" x="25%" y="65%" font-size="3vw">得分: 0/5</text>
+            </svg>
             <!--            <span id="score_board">Score: 0 / 5</span>-->
+        </div>
+        <div id="message_box" class="msg_b" style="visibility:hidden;">
+            <span>遊戲結束</span>
         </div>
     </div>
 </body>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 <script type="text/javascript" src="myfunction.js"></script>
-<script src="http://192.168.6.39:8080/target/target-script-min.js"></script>
-</html>
+<!--<script src="http://192.168.6.39:8080/target/target-script-min.js"></script>--></html>

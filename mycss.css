@@ -1,9 +1,11 @@
 /* Disable all drag and drop */
-*, *::after, *::before {
-	user-select: none;
-	user-drag: none;
-	app-region: no-drag;
-	cursor: default;
+*,
+*::after,
+*::before {
+    user-select: none;
+    user-drag: none;
+    app-region: no-drag;
+    cursor: default;
 }
 
 .container_all {
@@ -276,22 +278,12 @@ div.tools:hover {
     }
 }
 
-span#score_board {
-    position: absolute;
-    font-size: 1.5vw;
-    border: solid 0.5px black;
-    border-radius: 0 0 20px 20px;
-    height: 100%;
-    text-align: center;
-    left: 80%;
-    width: 20%;
-}
-
 .speech-bubble {
     position: relative;
     background: ivory;
     border-radius: .4em;
     opacity: 0.8;
+    border: solid 4px black;
 }
 
 .speech-bubble:after {
@@ -302,7 +294,7 @@ span#score_board {
     width: 0;
     height: 0;
     border: 0.625em solid transparent;
-    border-top-color: ivory;
+    border-top-color: black;
     border-bottom: 0;
     border-left: 0;
     margin-left: -0.312em;
@@ -315,6 +307,7 @@ span#score_board {
     background: ivory;
     border-radius: .4em;
     opacity: 0.8;
+    border: solid 4px black;
 }
 
 .speech-bubble-left:after {
@@ -325,7 +318,7 @@ span#score_board {
     width: 0;
     height: 0;
     border: 0.625em solid transparent;
-    border-top-color: ivory;
+    border-top-color: black;
     border-bottom: 0;
     border-left: 0;
     margin-left: -0.312em;
@@ -337,6 +330,7 @@ span#score_board {
     background: ivory;
     border-radius: .4em;
     opacity: 0.8;
+    border: solid 4px black;
 }
 
 .speech-bubble-right:after {
@@ -347,7 +341,31 @@ span#score_board {
     width: 0;
     height: 0;
     border: 0.625em solid transparent;
-    border-top-color: ivory;
+    border-top-color: black;
+    border-bottom: 0;
+    border-right: 0;
+    margin-left: -0.312em;
+    margin-bottom: -0.625em;
+    opacity: 0.8;
+}
+
+.speech-bubble-right-0 {
+    position: relative;
+    background: ivory;
+    border-radius: .4em;
+    opacity: 0.8;
+    border: solid 4px black;
+}
+
+.speech-bubble-right-0:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 80%;
+    width: 0;
+    height: 0;
+    border: 0.625em solid transparent;
+    border-top-color: black;
     border-bottom: 0;
     border-right: 0;
     margin-left: -0.312em;
@@ -408,7 +426,7 @@ span#score_board {
 #info_hook {
     position: absolute;
     top: 15%;
-    left: 80%;
+    left: 76%;
     font-size: 1.5vw;
     height: 14%;
     width: 20%;
@@ -423,4 +441,31 @@ span#score_board {
     height: 14%;
     width: 20%;
     visibility: hidden;
+}
+
+.msg_b {
+    position: absolute;
+    top: 40%;
+    left: 33%;
+    border: solid 2px yellow;
+    border-radius: 10px;
+    background-color: azure;
+    height: 15%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+}
+
+div#foot div{
+    position: relative;
+    padding: 5px;
+}
+
+svg{
+    box-sizing: border-box;
+    border: solid 2px yellow;
+    background-color: azure;
+    box-shadow: 0px 10px 14px -7px #276873;
 }
