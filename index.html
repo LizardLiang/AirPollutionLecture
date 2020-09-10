@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <link rel="stylesheet" type="text/css" href="mycss.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -10,32 +9,36 @@
     <div class="container_all">
         <div id="pic_container" style="position: relative">
             <div id="info_sunk" class="speech-bubble">
-                <span>水槽保持乾燥避免微生物孳生; 廁所內裝置排風扇有助於濕氣及異味排出</span>
+                <span>水槽保持乾燥避免微生物孳生,廁所內裝置排風扇有助於濕氣及異味排出</span>
             </div>
             <div id="info_win" class="speech-bubble">
-                <span>避免在人員於室內時開啟，使用後加強室內通風</span>
+                <span>避免在人員於室內時開啟,使用後加強室內通風</span>
             </div>
             <div id="info_shelf" class="speech-bubble">
-                <span>使用綠建材標章產品，並加強室內通風</span>
+                <span>使用綠建材標章產品,並加強室內通風</span>
             </div>
             <div id="info_carpet" class="speech-bubble">
-                <span>定期清潔地毯，避免灰塵累積</span>
+                <span>定期清潔地毯,避免灰塵累積</span>
             </div>
             <div id="info_paint" class="speech-bubble-left">
-                <span>使用綠建材標章產品; 使用中及使用完畢後，加強室內通風</span>
+                <span>使用綠建材標章產品,使用中及使用完畢後,加強室內通風</span>
             </div>
-            <div id="info_hook" class="speech-bubble-right">
-                <span>使用瓦斯燃燒設備時，開啟抽油煙機並關閉同側窗戶</span>
+            <div id="info_hook" class="speech-bubble-right-0">
+                <span>使用瓦斯燃燒設備時,開啟抽油煙機並關閉同側窗戶</span>
             </div>
             <div id="info_floor" class="speech-bubble">
-                <span>使用綠建材標章產品，並加強室內通風</span>
+                <span>使用綠建材標章產品,並加強室內通風</span>
+            </div>
+            <div id="info_spray" class="speech-bubble">
+                <span>例行清潔應減少使用木質地板蠟,使用中及使用完畢後,加強室內通風</span>
             </div>
             <img id="pic" src="image/room_0.jpg" usemap="#MyMap" />
             <img id="sunk" class="r_sunk no_event" src="image/sunk_1.png">
-            <img id="stove" class="r_stove" src="image/stove_1.png">
+            <img id="stove" class="r_stove no_event" src="image/stove_1.png">
             <img id="paint" class="r_paint no_event" src="image/paint.png" />
             <img id="hood" class="r_hood no_event" src="image/hood_1.png" />
             <img id="win" class="r_win no_event" src="image/win_1.png" />
+            <img id="spray" class="r_spray_1 no_event" src="image/spray_1.png" />
             <img id="s_b_1" class="s_b_1 no_event" src="image/bac_1.png" />
             <img id="s_b_2" class="s_b_2 no_event" src="image/bac_2.png" />
             <img id="s_b_3" class="s_b_3 no_event" src="image/bac_3.png" />
@@ -46,15 +49,16 @@
             <img id="f_b_2" class="f_b_2 no_event" src="image/bac_2.png" />
             <img id="f_b_3" class="f_b_3 no_event" src="image/bac_3.png" />
             <map id="Mymap" name="MyMap">
-                <area id="1" shape="rect" coords="20, 45, 320, 375" >
-                <area id="2" shape="rect" coords="400, 45, 620, 375" >
-                <area id="3" shape="rect" coords="720, 45, 820, 375" >
-                <area id="4" shape="rect" coords="920, 45, 1220, 375" >
-                <area id="5" shape="rect" coords="20, 630, 320, 985" >
-                <area id="6" shape="rect" coords="400, 630, 620, 985" >
-                <area id="7" shape="rect" coords="720, 630, 820, 985" >
-                <area id="8" shape="rect" coords="920, 630, 1220, 985" >
+                <area id="1" shape="rect" coords="20, 45, 320, 375">
+                <area id="2" shape="rect" coords="400, 45, 620, 375">
+                <area id="3" shape="rect" coords="720, 45, 820, 375">
+                <area id="4" shape="rect" coords="920, 45, 1220, 375">
+                <area id="5" shape="rect" coords="20, 630, 320, 985">
+                <area id="6" shape="rect" coords="400, 630, 620, 985">
+                <area id="7" shape="rect" coords="720, 630, 820, 985">
+                <area id="8" shape="rect" coords="920, 630, 1220, 985">
             </map>
+            <!--
             <div id="tool_box" style="visibility: hidden;">
                 <div id="tool_1" class="tools" onclick="T_box_click(1)">1</div>
                 <div id="tool_2" class="tools" onclick="T_box_click(2)">2</div>
@@ -65,29 +69,29 @@
                 <div id="tool_7" class="tools" onclick="T_box_click(7)">7</div>
                 <div id="tool_8" class="tools" onclick="T_box_click(8)">8</div>
             </div>
+            -->
         </div>
         <div id="foot">
-            <div>
-                <svg width="100%" height="100%" viewBox="0 0 100% 100%">
-                    <text id="timer_text" x="20%" y="70%" font-size="3vw">2:00</text>
-                </svg>
-            </div>
-            <div>
+            <svg width="25%" height="95%">
+                <text id="timer_label" x="0%" y="35%" font-size="3vmin">計時器</text>
+                <text id="timer_text" x="50%" y="80%" font-size="6vmin">2:00</text>
+            </svg>
+            <div width="25%" height="100%">
                 <button id="timer_start_b" onclick="start_timer()">開始遊戲</button>
             </div>
-            <div>
+            <div width="25%" height="100%">
                 <button id="timer_stop_b" onclick="stop_timer()">重新開始</button>
             </div>
-            <div>
-                <svg width="100%" height="100%" viewBox="0 0 100% 100%">
-                    <text id="score" x="20%" y="70%" font-size="3vw">得分: 0/5</text>
-                </svg>
-            </div>
-            <!--            <span id="score_board">Score: 0 / 5</span>-->
+            <svg width="25%" height="95%">
+                <text id="score" x="25%" y="65%" font-size="4vmin">得分: 0/5</text>
+            </svg>
+        </div>
+        <div id="message_box" class="msg_b" style="visibility:hidden;">
+            <span>遊戲結束</span>
         </div>
     </div>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-    <script type="text/javascript" src="myfunction.js"></script>
 </body>
 
-</html>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="myfunction.js"></script>
+<!--<script src="http://192.168.6.39:8080/target/target-script-min.js"></script>--></html>

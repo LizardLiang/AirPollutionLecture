@@ -1,14 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap")
 /* Disable all drag and drop */
-*, *::after, *::before {
-	-webkit-user-select: none;
-	-webkit-user-drag: none;
-	-webkit-app-region: no-drag;
-	cursor: default;
+*,
+*::after,
+*::before {
+    user-select: none;
+    user-drag: none;
+    app-region: no-drag;
+    cursor: default;
+    font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif !important;
 }
 
 .container_all {
     max-width: 1280px;
-    /*max-height: 1024px;*/
+    max-height: 1024px;
     width: 100%;
     height: 100%;
     background-color: aqua;
@@ -31,7 +35,7 @@ p {
 button {
     width: 100%;
     height: 95%;
-    font-size: 2vw;
+    font-size: 4vmin;
     border-radius: 50px;
     box-shadow: 0px 10px 14px -7px #276873;
 }
@@ -39,10 +43,6 @@ button {
 button:hover {
     position: relative;
     top: 3px;
-}
-
-#timer_text {
-    font-size: 4vw;
 }
 
 div#pic_container {
@@ -106,6 +106,24 @@ img.r_win {
     left: 45%;
     width: 15.625%;
     height: 20.01953125%;
+}
+
+/* origin size 128 x 115 */
+img.r_spray_1{
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    width: 10%;
+    height: 11.23046875%;
+}
+
+/* origin size 128 x 115 */
+img.r_spray_0{
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    width: 7.734375%;
+    height: 11.23046875%;
 }
 
 img.s_b_1 {
@@ -181,7 +199,7 @@ img.f_b_3 {
 }
 
 img.no_event {
-    pointer-events: none;
+    pointer-events: none !important;
 }
 
 div#hint_board,
@@ -276,22 +294,12 @@ div.tools:hover {
     }
 }
 
-span#score_board {
-    position: absolute;
-    font-size: 1.5vw;
-    border: solid 0.5px black;
-    border-radius: 0 0 20px 20px;
-    height: 100%;
-    text-align: center;
-    left: 80%;
-    width: 20%;
-}
-
 .speech-bubble {
     position: relative;
     background: ivory;
     border-radius: .4em;
     opacity: 0.8;
+    border: solid 4px black;
 }
 
 .speech-bubble:after {
@@ -302,7 +310,7 @@ span#score_board {
     width: 0;
     height: 0;
     border: 0.625em solid transparent;
-    border-top-color: ivory;
+    border-top-color: black;
     border-bottom: 0;
     border-left: 0;
     margin-left: -0.312em;
@@ -315,6 +323,7 @@ span#score_board {
     background: ivory;
     border-radius: .4em;
     opacity: 0.8;
+    border: solid 4px black;
 }
 
 .speech-bubble-left:after {
@@ -325,7 +334,7 @@ span#score_board {
     width: 0;
     height: 0;
     border: 0.625em solid transparent;
-    border-top-color: ivory;
+    border-top-color: black;
     border-bottom: 0;
     border-left: 0;
     margin-left: -0.312em;
@@ -337,6 +346,7 @@ span#score_board {
     background: ivory;
     border-radius: .4em;
     opacity: 0.8;
+    border: solid 4px black;
 }
 
 .speech-bubble-right:after {
@@ -347,7 +357,31 @@ span#score_board {
     width: 0;
     height: 0;
     border: 0.625em solid transparent;
-    border-top-color: ivory;
+    border-top-color: black;
+    border-bottom: 0;
+    border-right: 0;
+    margin-left: -0.312em;
+    margin-bottom: -0.625em;
+    opacity: 0.8;
+}
+
+.speech-bubble-right-0 {
+    position: relative;
+    background: ivory;
+    border-radius: .4em;
+    opacity: 0.8;
+    border: solid 4px black;
+}
+
+.speech-bubble-right-0:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 80%;
+    width: 0;
+    height: 0;
+    border: 0.625em solid transparent;
+    border-top-color: black;
     border-bottom: 0;
     border-right: 0;
     margin-left: -0.312em;
@@ -359,17 +393,17 @@ span#score_board {
     position: absolute;
     top: 32%;
     left: 65%;
-    font-size: 1.5vw;
+    font-size: 3vmin;
     height: 15%;
     width: 25%;
-    visibility: hidden;
+    visibility: visible;
 }
 
 #info_win {
     position: absolute;
     top: 14%;
     left: 40%;
-    font-size: 1.5vw;
+    font-size: 3vmin;
     height: 15%;
     width: 30%;
     visibility: hidden;
@@ -378,8 +412,8 @@ span#score_board {
 #info_carpet {
     position: absolute;
     top: 60%;
-    left: 30%;
-    font-size: 1.5vw;
+    left: 25%;
+    font-size: 3vmin;
     height: 10%;
     width: 20%;
     visibility: hidden;
@@ -389,7 +423,7 @@ span#score_board {
     position: absolute;
     top: 25%;
     left: 20%;
-    font-size: 1.5vw;
+    font-size: 3vmin;
     height: 12.8%;
     width: 20%;
     visibility: hidden;
@@ -399,7 +433,7 @@ span#score_board {
     position: absolute;
     top: 5%;
     left: 10%;
-    font-size: 1.5vw;
+    font-size: 3vmin;
     height: 10%;
     width: 30%;
     visibility: hidden;
@@ -408,8 +442,8 @@ span#score_board {
 #info_hook {
     position: absolute;
     top: 15%;
-    left: 80%;
-    font-size: 1.5vw;
+    left: 76%;
+    font-size: 3vmin;
     height: 14%;
     width: 20%;
     visibility: hidden;
@@ -418,9 +452,52 @@ span#score_board {
 #info_floor {
     position: absolute;
     top: 59%;
-    left: 70%;
-    font-size: 1.5vw;
+    left: 71%;
+    font-size: 3vmin;
     height: 14%;
     width: 20%;
     visibility: hidden;
+}
+
+#info_spray {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    font-size: 3vmin;
+    height: 17%;
+    width: 20%;
+    visibility: hidden;
+}
+
+.msg_b {
+    position: absolute;
+    top: 40%;
+    left: 33%;
+    border: solid 2px yellow;
+    border-radius: 10px;
+    background-color: azure;
+    height: 15%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+}
+
+div#foot div{
+    position: relative;
+    padding: 5px;
+}
+
+svg{
+    box-sizing: border-box;
+    border: solid 2px yellow;
+    background-color: azure;
+    box-shadow: 0px 10px 14px -7px #276873;
+}
+
+text{
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
