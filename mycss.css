@@ -59,6 +59,14 @@ img#pic {
 
 /* origin size 71 x 14 */
 /* position x 876.797, y 455.531 */
+div.r_sunk {
+    position: absolute;
+    top: 50.8%;
+    left: 69.2%;
+    width: 5.546875%;
+    height: 1.3671875%;
+}
+
 img.r_sunk {
     position: absolute;
     top: 50.8%;
@@ -69,7 +77,7 @@ img.r_sunk {
 
 /* origin size 106 x 221 */
 /* position x 1167.36, y 490.701 */
-img.r_stove {
+div.r_stove {
     position: absolute;
     top: 49%;
     left: 91.7%;
@@ -77,10 +85,15 @@ img.r_stove {
     height: 21.58203125%;
 }
 
+img.r_stove {
+    width: 100%;
+    height: 100%;
+}
+
 /* origin size 454 x 653 */
 /* origin is too big change to 112 x 159.984 */
 /* position x 125.438, y 194.56 */
-img.r_paint {
+div.r_paint {
     position: absolute;
     top: 19%;
     left: 9.8%;
@@ -88,9 +101,14 @@ img.r_paint {
     width: 8.75%;
 }
 
+img.r_paint {
+    height: 100%;
+    width: 100%;
+}
+
 /* origin size 107 x 191 */
 /* position x 1173.75, y 276.48 */
-img.r_hood {
+div.r_hood {
     position: absolute;
     top: 27%;
     left: 91.7%;
@@ -98,9 +116,19 @@ img.r_hood {
     height: 18.65234375%;
 }
 
+img.r_hood {
+    width: 100%;
+    height: 100%;
+}
+
 /* origin size 200 x 205 */
 /* position x 1173.75, y 276.48 */
 img.r_win {
+    width: 100%;
+    height: 100%;
+}
+
+div.r_win {
     position: absolute;
     top: 29%;
     left: 45%;
@@ -108,13 +136,18 @@ img.r_win {
     height: 20.01953125%;
 }
 
-/* origin size 128 x 115 */
-img.r_spray_1{
+div.r_spray_1{
     position: absolute;
     top: 75%;
     left: 50%;
     width: 10%;
     height: 11.23046875%;
+}
+
+/* origin size 128 x 115 */
+img.r_spray_1{
+    width: 100%;
+    height: 100%;
 }
 
 /* origin size 128 x 115 */
@@ -124,6 +157,10 @@ img.r_spray_0{
     left: 50%;
     width: 7.734375%;
     height: 11.23046875%;
+}
+
+div.s_b{
+    
 }
 
 img.s_b_1 {
@@ -500,4 +537,34 @@ text{
     position: relative;
     width: 100%;
     height: 100%;
+}
+
+/* Ripple Out */
+@keyframes hvr-ripple-out {
+  100% {
+    top: -12px;
+    right: -12px;
+    bottom: -12px;
+    left: -12px;
+    opacity: 0;
+  }
+}
+.hvr-ripple-out {
+  /*display: inline-block;*/
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-ripple-out:before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  bottom: -6px;
+  left: -6px;
+  animation-duration: 1s;
+}
+.hvr-ripple-out:hover:before, .hvr-ripple-out:focus:before, .hvr-ripple-out:active:before {
+  border: #e1e1e1 solid 3px;
+  animation-name: hvr-ripple-out;
 }
