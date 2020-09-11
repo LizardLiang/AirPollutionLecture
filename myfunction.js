@@ -1,4 +1,4 @@
-var timer = 2 * 60; // timer for 2 mins
+var timer = 1 * 60; // timer for 2 mins
 var timer_cnt = 1;
 var timer_ID;
 var info_title = ['臭氧(O3)',
@@ -21,9 +21,18 @@ var info_text = ['避免在人員於室內時開啟，使用後加強室內通�
                  '水槽保持乾燥避免微生物孳生; 廁所內裝置排風扇有助於濕氣及異味排出'];
 
 
-var info_array = ['#info_sunk', '#info_hook', '#info_paint', '#info_win', '#info_shelf', '#info_carpet', '#info_floor', '#info_spray'];
+var info_array = ['#info_sunk', '#info_hook', '#info_paint', '#info_win',
+                  '#info_shelf', '#info_carpet', '#info_floor', '#info_spray'];
 
+var div_array = ['sunk', 'stove', 'paint', 'clean',
+                 's_b', 'carpet', 'f_b', 'spray'];
 
+var bac_array = ['bacs_1', 'bacs_2', 'bacs_3'];
+
+var room_array = ['image/room_0.jpg', 'image/room_1.jpg'];
+var bar_array = ['red', 'red', 'orange', 'wtf', 'yellow', 'green'];
+
+/*
 var previousCoords = [
     [
         // sunk
@@ -85,12 +94,13 @@ var previousCoords = [
 
 var previousWidth = 1280,
     previousHeight = 1024;
+*/
 
 // random number
 var list = [0, 1, 2, 3, 4, 5, 6, 7];
 
 /* Declare a class for initialize array */
-var Enable_item = function(){
+var Enable_item = function () {
     this.item = [false, false, false, false, false, false, false, false];
 }
 
@@ -98,7 +108,7 @@ var item = new Enable_item();
 
 // pic dic
 var win_pic = ['image/win_0.png', 'image/win_1.png'];
-var spray_pic = ['image/spray_0.png', 'image/spray_1.png'];
+//var spray_pic = ['image/spray_0.png', 'image/spray_1.png'];
 
 var array_f = ["#f_b_1", "#f_b_2", "#f_b_3"];
 var array_s = ["#s_b_1", "#s_b_2", "#s_b_3"];
@@ -111,6 +121,7 @@ $(document).ready(function () {
     $('#explanation').html(info);
 });
 
+/*
 window.onload = function () {
     var Imagemap = function (map, img) {
             var n = 0,
@@ -136,7 +147,7 @@ window.onload = function () {
                     for (clen = 0; clen < 4; clen++) {
                         if ((clen % 2) === 0)
                             coords[n][clen] = previousCoords[n][clen] * ratioWidth;
-                        else{
+                        else {
                             coords[n][clen] = previousCoords[n][clen] * ratioHeight;
                         }
                     }
@@ -152,6 +163,7 @@ window.onload = function () {
     imageMap.resize();
     return;
 }
+*/
 
 // shuffle array
 function random_five() {
@@ -179,33 +191,35 @@ function random_five() {
     }
 
     // if item is not enable change item pic
-    for (var i = 0; i < 8; i++) {
+    for (i = 0; i < 8; i++) {
         if (item.item[i] === false) {
             set_pic(i + 1, false);
         }
+        $('#d_' + div_array[i]).removeClass('hvr-ripple-out');
+        $('#d_' + div_array[i]).removeClass('hvr-ripple-out-active');
     }
 }
 
 function initial_timer() {
     // initialize every component
-    
+
     // initial button
     $('#timer_stop_b').attr('disabled', true);
     $('#timer_start_b').attr('disabled', false);
-    
+
     $('#message_box').css('visibility', 'hidden');
     // initial score board
-    $('#timer_text').text('2:00');
+    $('#timer_text').text('1:00');
     var text = "得分: 0/5";
     $('#score').text(text);
-    
+
     // intial picture
     initial_pic();
-    
+
     // initial counter
     timer_cnt = 1;
     score = 0;
-    
+
     // initial shuffle
     random_five();
     clearInterval(timer_ID);
@@ -218,21 +232,23 @@ function initial_pic() {
     $('#hood').attr('src', "image/hood_1.png");
     $('#paint').css('visibility', 'visible');
     $('#win').attr('src', win_pic[1]);
-    $('#spray').css('visibility', 'visible')
+    $('#pic').attr('src', room_array[1]);
+    $('#spray').css('visibility', 'visible');
+    $('#d_bar').attr('src', 'image/bar_' + bar_array[0] + '.png');
+    $('#carpet').removeClass('r_carpet_0');
+    $('#carpet').attr('src', 'image/carpet_1.png');
     var len = array_s.length;
     for (var i = 0; i < len; i++) {
         $(array_s[i]).css('visibility', 'visible');
     }
-    var len = array_c.length;
-    for (var i = 0; i < len; i++) {
-        $(array_c[i]).css('visibility', 'visible');
-    }
-    var len = array_f.length;
+    len = array_f.length;
     for (var i = 0; i < len; i++) {
         $(array_f[i]).css('visibility', 'visible');
     }
-    
-    for(var i = 0; i < info_array.length; i++){
+    for (var i = 0; i < bac_array.length; i++) {
+        $('.' + bac_array[i]).css('visibility', 'visible');
+    }
+    for (var i = 0; i < info_array.length; i++) {
         $(info_array[i]).css('visibility', 'hidden');
     }
 }
@@ -243,6 +259,13 @@ function start_timer() {
     $('#timer_start_b').attr('disabled', true);
     $('#timer_stop_b').attr('disabled', false);
     is_start = true;
+
+    for (i = 0; i < 8; i++) {
+        if (item.item[i] != false) {
+            $('#d_' + div_array[i]).addClass('hvr-ripple-out');
+        }
+    }
+
     timer_ID = setInterval(timer_tick, 1000);
 }
 
@@ -270,48 +293,58 @@ function SecToMin(time) {
 
 // Time tick count
 function timer_tick() {
-    SecToMin(timer - timer_cnt);
+    var del_time = timer - timer_cnt
+    SecToMin(del_time);
     timer_cnt++;
     if (timer_cnt > timer) {
         clearInterval(timer_ID);
-        for(var i = 0; i < item.item.length; i++){
-            if(item.item[i] === true){
+        for (var i = 0; i < item.item.length; i++) {
+            if (item.item[i] === true) {
                 set_pic(i + 1, true);
             }
         }
-        
+
         $('#message_box').text("時間到");
         $('#message_box').css('visibility', 'visible');
         //initial_timer();
+    } else if (del_time == 40) {
+        console.log(del_time)
+        for (var i = 0; i < 8; i++) {
+            if (item.item[i] === true) {
+                $('#d_' + div_array[i]).addClass('hvr-ripple-out-active');
+            }
+        }
     }
 }
 
 // Add Event
+/*
 var map = document.querySelector('map');
-map.addEventListener('click', function(e){
+map.addEventListener('click', function (e) {
     mapclick(parseInt(e.target.id));
 }, false);
 
-map.addEventListener('mouseover', function(e){
+map.addEventListener('mouseover', function (e) {
     var serial = parseInt(e.target.id);
-    
+
     // if item is not in use in this round and game is not started
-    if(item.item[serial - 1] === false || is_start === false){
+    if (item.item[serial - 1] === false || is_start === false) {
+        $('#' + serial).css('cursor', 'default');
         return false;
     }
-    
+
     // change cursor style
     $('#' + serial).css('cursor', 'pointer');
 })
+*/
 
-
-var current_index = 0;  // keep current item clicked
-var is_start = false;   // indicate game status
+var current_index = 0; // keep current item clicked
+var is_start = false; // indicate game status
 function mapclick(serial) {
     // return if game is set or item is not enable
     if (score >= 5 || item.item[serial - 1] === false || is_start === false)
         return;
-    
+
     // if it's clicked set it to normal
     item.item[serial - 1] = false;
 
@@ -324,15 +357,18 @@ function mapclick(serial) {
 
 // this function is use to set picture to normal mode
 function set_pic(serial, isclick) {
-    
+
     // in gaming process show info bubble
-    if(isclick)
+    if (isclick)
         $(info_array[serial - 1]).css('visibility', 'visible');
-    
+
     // set picture
     switch (serial) {
         case 1:
             $('#sunk').css('visibility', 'hidden');
+            for (var i = 0; i < bac_array.length; i++) {
+                $('.' + bac_array[i]).css('visibility', 'hidden');
+            }
             break;
         case 2:
             $('#hood').attr('src', "image/hood_0.png");
@@ -350,14 +386,12 @@ function set_pic(serial, isclick) {
             }
             break;
         case 6:
-            var len = array_c.length;
-            for (var i = 0; i < len; i++) {
-                $(array_c[i]).css('visibility', 'hidden');
-            }
+            $('#carpet').addClass('r_carpet_0');
+            $('#carpet').attr('src', 'image/carpet_0.png');
             break;
         case 7:
-            var len = array_f.length;
-            for (var i = 0; i < len; i++) {
+            $('#pic').attr('src', room_array[0]);
+            for (var i = 0; i < array_f.length; i++) {
                 $(array_f[i]).css('visibility', 'hidden');
             }
             break;
@@ -369,8 +403,10 @@ function set_pic(serial, isclick) {
 
 // Scores related
 var score = 0;
+
 function set_score() {
     score++;
+    $('#d_bar').attr('src', 'image/bar_' + bar_array[score] + '.png');
     var text = "得分: " + score + "/5";
     $('#score').text(text);
     if (score >= 5) {

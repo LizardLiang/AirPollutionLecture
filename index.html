@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <link rel="stylesheet" type="text/css" href="mycss.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -26,50 +27,60 @@
             <div id="info_hook" class="speech-bubble-right-0">
                 <span>使用瓦斯燃燒設備時,開啟抽油煙機並關閉同側窗戶</span>
             </div>
-            <div id="info_floor" class="speech-bubble">
+            <div id="info_floor" class="speech-bubble-left">
                 <span>使用綠建材標章產品,並加強室內通風</span>
             </div>
             <div id="info_spray" class="speech-bubble">
                 <span>例行清潔應減少使用木質地板蠟,使用中及使用完畢後,加強室內通風</span>
             </div>
-            <img id="pic" src="image/room_0.jpg" usemap="#MyMap" />
-            <div class="r_sunk hvr-ripple-out">
+            <img id="pic" src="image/room_1.jpg" />
+            <div id="d_sunk" class="r_sunk hvr-ripple-out" onclick="mapclick(1)">
                 <img id="sunk" class="r_sunk no_event" src="image/sunk_1.png">
             </div>
-            <div class="r_stove">
+
+            <img id="d_bar" class="r_bar" src="image/bar_red.png">
+            
+            <div id="d_stove" class="r_stove hvr-ripple-out" onclick="mapclick(2)">
                 <img id="stove" class="r_stove no_event" src="image/stove_1.png">
             </div>
-            <div class="r_paint hvr-ripple-out">
+
+            <div id="d_paint" class="r_paint hvr-ripple-out " onclick="mapclick(3)">
                 <img id="paint" class="r_paint no_event" src="image/paint.png" />
             </div>
-            <div class="r_hood hvr-ripple-out">
+
+            <div id="d_hood" class="r_hood" onclick="mapclick(2)">
                 <img id="hood" class="r_hood no_event" src="image/hood_1.png" />
             </div>
-            <div class="r_win hvr-ripple-out">
+
+            <div id="d_win" class="r_win">
                 <img id="win" class="r_win no_event" src="image/win_1.png" />
             </div>
-            <div class="r_spray_1 hvr-ripple-out">
+
+            <div id="d_clean" class="r_clean hvr-ripple-out" onclick="mapclick(4)">
+            </div>
+
+            <div id="d_spray" class="r_spray_1 hvr-ripple-out " onclick="mapclick(8)">
                 <img id="spray" class="r_spray_1 no_event" src="image/spray_1.png" />
             </div>
-            <img id="s_b_1" class="s_b_1 no_event" src="image/bac_1.png" />
-            <img id="s_b_2" class="s_b_2 no_event" src="image/bac_2.png" />
-            <img id="s_b_3" class="s_b_3 no_event" src="image/bac_3.png" />
-            <img id="c_b_1" class="c_b_1 no_event" src="image/bac_1.png" />
-            <img id="c_b_2" class="c_b_2 no_event" src="image/bac_2.png" />
-            <img id="c_b_3" class="c_b_3 no_event" src="image/bac_3.png" />
-            <img id="f_b_1" class="f_b_1 no_event" src="image/bac_1.png" />
-            <img id="f_b_2" class="f_b_2 no_event" src="image/bac_2.png" />
-            <img id="f_b_3" class="f_b_3 no_event" src="image/bac_3.png" />
-            <map id="Mymap" name="MyMap">
-                <area id="1" shape="rect" coords="20, 45, 320, 375">
-                <area id="2" shape="rect" coords="400, 45, 620, 375">
-                <area id="3" shape="rect" coords="720, 45, 820, 375">
-                <area id="4" shape="rect" coords="920, 45, 1220, 375">
-                <area id="5" shape="rect" coords="20, 630, 320, 985">
-                <area id="6" shape="rect" coords="400, 630, 620, 985">
-                <area id="7" shape="rect" coords="720, 630, 820, 985">
-                <area id="8" shape="rect" coords="920, 630, 1220, 985">
-            </map>
+            <div id="d_s_b" class="d_s_b hvr-ripple-out" onclick="mapclick(5)">
+                <img id="s_b_1" class="s_b_1 no_event" src="image/bubble_g_1.png" />
+                <img id="s_b_2" class="s_b_2 no_event" src="image/bubble_g_1.png" />
+                <img id="s_b_3" class="s_b_3 no_event" src="image/bubble_g_2.png" />
+            </div>
+            <div id="d_carpet" class="d_c_b hvr-ripple-out" onclick="mapclick(6)">
+                <img id="carpet" class="r_carpet no_event" src="image/carpet_1.png" />
+            </div>
+            <div id="d_f_b" class="d_f_b hvr-ripple-out" onclick="mapclick(7)">
+                <img id="f_b_1" class="f_b_1 no_event" src="image/bubble_b_1.png" />
+                <img id="f_b_2" class="f_b_2 no_event" src="image/bubble_b_1.png" />
+                <img id="f_b_3" class="f_b_3 no_event" src="image/bubble_b_2.png" />
+            </div>
+            <img id="bacs_1" class="bacs_1 no_event" src="image/bac_1.png" />
+            <img id="bacs_2" class="bacs_2 no_event" src="image/bac_2.png" />
+            <img id="bacs_3" class="bacs_3 no_event" src="image/bac_3.png" />
+            <!-- background object -->
+            <img id="table" class="r_table no_event" src="image/table.png" />
+            <img id="chair" class="r_chair no_event" src="image/chair.png" />
             <!--
             <div id="tool_box" style="visibility: hidden;">
                 <div id="tool_1" class="tools" onclick="T_box_click(1)">1</div>
@@ -106,4 +117,6 @@
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 <script type="text/javascript" src="myfunction.js"></script>
-<!--<script src="http://192.168.6.39:8080/target/target-script-min.js"></script>--></html>
+<!--<script src="http://192.168.6.39:8080/target/target-script-min.js"></script>-->
+
+</html>
