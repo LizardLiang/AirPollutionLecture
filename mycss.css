@@ -247,15 +247,13 @@ img.s_b_2 {
     height: 5%;
 }
 
-/*
 img.s_b_3 {
     position: relative;
-    top: -30%;
-    left: -50%;
+    top: -82%;
+    left: -40%;
     width: 20%;
-    height: 30%;
+    height: 5%;
 }
-*/
 
 div.d_c_b {
     position: absolute;
@@ -310,15 +308,13 @@ img.f_b_2 {
     height: 10%;
 }
 
-/*
 img.f_b_3 {
     position: relative;
-    top: 0%;
-    left: -40%;
-    width: 16%;
-    height: 50%;
+    top: -40%;
+    left: 15%;
+    width: 30%;
+    height: 10%;
 }
-*/
 
 img.bacs_1 {
     position: absolute;
