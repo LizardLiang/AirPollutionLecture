@@ -232,7 +232,7 @@ div.d_s_b {
 }
 
 img.s_b_1 {
-    position: relative;
+    position: absolute;
     top: -50%;
     left: 25%;
     width: 50%;
@@ -240,17 +240,17 @@ img.s_b_1 {
 }
 
 img.s_b_2 {
-    position: relative;
-    top: -85%;
-    left: 30%;
+    position: absolute;
+    top: -8%;
+    left: 80%;
     width: 20%;
     height: 5%;
 }
 
 img.s_b_3 {
-    position: relative;
-    top: -82%;
-    left: -40%;
+    position: absolute;
+    top: -8%;
+    left: 30%;
     width: 20%;
     height: 5%;
 }
