@@ -9,31 +9,85 @@
 <body>
     <div class="container_all">
         <div id="pic_container" style="position: relative">
-            <img id="pic" src="image/room_0.jpg" usemap="#MyMap" />
-            <img id="sunk" class="r_sunk no_event" src="image/sunk_1.png">
-            <img id="stove" class="r_stove" src="image/stove_1.png">
-            <img id="paint" class="r_paint no_event" src="image/paint.png" />
-            <img id="hood" class="r_hood no_event" src="image/hood_1.png" />
-            <img id="win" class="r_win no_event" src="image/win_1.png" />
-            <img id="s_b_1" class="s_b_1 no_event" src="image/bac_1.png" />
-            <img id="s_b_2" class="s_b_2 no_event" src="image/bac_2.png" />
-            <img id="s_b_3" class="s_b_3 no_event" src="image/bac_3.png" />
-            <img id="c_b_1" class="c_b_1 no_event" src="image/bac_1.png" />
-            <img id="c_b_2" class="c_b_2 no_event" src="image/bac_2.png" />
-            <img id="c_b_3" class="c_b_3 no_event" src="image/bac_3.png" />
-            <img id="f_b_1" class="f_b_1 no_event" src="image/bac_1.png" />
-            <img id="f_b_2" class="f_b_2 no_event" src="image/bac_2.png" />
-            <img id="f_b_3" class="f_b_3 no_event" src="image/bac_3.png" />
-            <map id="Mymap" name="MyMap">
-                <area shape="rect" coords="20, 45, 320, 375" onclick="mapclick(1)">
-                <area shape="rect" coords="400, 45, 620, 375" onclick="mapclick(2)">
-                <area shape="rect" coords="720, 45, 820, 375" onclick="mapclick(3)">
-                <area shape="rect" coords="920, 45, 1220, 375" onclick="mapclick(4)">
-                <area shape="rect" coords="20, 630, 320, 985" onclick="mapclick(5)">
-                <area shape="rect" coords="400, 630, 620, 985" onclick="mapclick(6)">
-                <area shape="rect" coords="720, 630, 820, 985" onclick="mapclick(7)">
-                <area shape="rect" coords="920, 630, 1220, 985" onclick="mapclick(8)">
-            </map>
+            <div id="info_sunk" class="speech-bubble">
+                <span>廁所內應保持乾燥，並裝設排風扇，有助於濕氣及異味排出，避免微生物孳生</span>
+            </div>
+            <div id="info_win" class="speech-bubble">
+                <span>臭氧型空氣清淨機避免在人員於室內時開啟，使用後加強通風換氣</span>
+            </div>
+            <div id="info_shelf" class="speech-bubble-right-0">
+                <span>使用綠建材標章產品,並加強室內通風</span>
+                <img class="s_logo logo" src="image/logo.png">
+            </div>
+            <div id="info_carpet" class="speech-bubble">
+                <span>定期清潔地毯,避免灰塵累積</span>
+            </div>
+            <div id="info_paint" class="speech-bubble">
+                <span>使用綠建材標章產品,使用中及使用完畢後,加強室內通風</span>
+                <img class="p_logo logo" src="image/logo.png">
+            </div>
+            <div id="info_hook" class="speech-bubble-right-0">
+                <span>使用瓦斯燃燒設備時,開啟抽油煙機並關閉同側窗戶</span>
+            </div>
+            <div id="info_floor" class="speech-bubble-left">
+                <span>使用綠建材標章產品,並加強室內通風</span>
+                <img class="f_logo logo" src="image/logo.png">
+            </div>
+            <div id="info_spray" class="speech-bubble">
+                <span>清潔劑應減少使用木質地板蠟,使用中及使用完畢後,加強室內通風</span>
+            </div>
+            <img id="pic" src="image/room_1.jpg" />
+            <div id="d_sunk" class="r_sunk hvr-ripple-out" onclick="mapclick(1)">
+                <img id="sunk" class="r_sunk no_event" src="image/sunk_1.png">
+            </div>
+
+            <img id="d_bar" class="r_bar" src="image/bar_red.png">
+            
+            <div id="d_stove" class="r_stove hvr-ripple-out" onclick="mapclick(2)">
+                <img id="stove" class="r_stove no_event" src="image/stove_1.png">
+                <img id="smoke" class="r_smoke no_event" src="image/smoke.png">
+            </div>
+
+            <div id="d_paint" class="r_paint hvr-ripple-out " onclick="mapclick(3)">
+                <img id="paint" class="r_paint no_event" src="image/paint.png" />
+            </div>
+
+            <div id="d_hood" class="r_hood" onclick="mapclick(2)">
+                <img id="hood" class="r_hood no_event" src="image/hood_1.png" />
+            </div>
+
+            <div id="d_win" class="r_win">
+                <img id="win" class="r_win no_event" src="image/win_1.png" />
+            </div>
+
+            <div id="d_clean" class="r_clean hvr-ripple-out" onclick="mapclick(4)">
+                <img id='cleaner' class='r_cleaner_1' src='image/cleaner_bubble.png'>
+                <img id='cleaner' class='r_cleaner_2' src='image/cleaner_bubble.png'>
+                <img id='cleaner' class='r_cleaner_3' src='image/cleaner_bubble.png'>
+            </div>
+            
+            <div id="d_carpet" class="d_c_b hvr-ripple-out" onclick="mapclick(6)">
+                <img id="carpet" class="r_carpet no_event" src="image/carpet_1.png" />
+            </div>
+
+            <div id="d_spray" class="r_spray_1 hvr-ripple-out " onclick="mapclick(8)">
+                <img id="spray" class="r_spray_1 no_event" src="image/spray_1.png" />
+            </div>
+            <div id="d_s_b" class="d_s_b hvr-ripple-out" onclick="mapclick(5)">
+                <img id="s_b_1" class="s_b_1 no_event" src="image/new_smoke.png"/>
+                <img id="s_b_2" class="s_b_2 no_event" src="image/hcho.png" />
+            </div>
+            <div id="d_f_b" class="d_f_b hvr-ripple-out" onclick="mapclick(7)">
+                <img id="f_b_1" class="f_b_1 no_event" src="image/new_smoke.png" />
+                <img id="f_b_2" class="f_b_2 no_event" src="image/hcho.png" />
+            </div>
+            <img id="bacs_1" class="bacs_1 no_event" src="image/bac_1.png" />
+            <img id="bacs_2" class="bacs_2 no_event" src="image/bac_2.png" />
+            <img id="bacs_3" class="bacs_3 no_event" src="image/bac_3.png" />
+            <!-- background object -->
+            <img id="table" class="r_table no_event" src="image/table.png" />
+            <img id="chair" class="r_chair no_event" src="image/chair.png" />
+            <!--
             <div id="tool_box" style="visibility: hidden;">
                 <div id="tool_1" class="tools" onclick="T_box_click(1)">1</div>
                 <div id="tool_2" class="tools" onclick="T_box_click(2)">2</div>
@@ -44,25 +98,31 @@
                 <div id="tool_7" class="tools" onclick="T_box_click(7)">7</div>
                 <div id="tool_8" class="tools" onclick="T_box_click(8)">8</div>
             </div>
+            -->
         </div>
         <div id="foot">
-            <div>
-                <span id="timer_text">2:00</span>
+            <svg width="25%" height="95%">
+                <text id="timer_label" x="0%" y="35%" font-size="3vmin">計時器</text>
+                <text id="timer_text" x="50%" y="80%" font-size="6vmin">2:00</text>
+            </svg>
+            <div width="25%" height="100%">
+                <button id="timer_start_b" onclick="start_timer()">開始遊戲</button>
             </div>
-            <div>
-                <button id="timer_start_b" onclick="start_timer()">Start</button>
+            <div width="25%" height="100%">
+                <button id="timer_stop_b" onclick="stop_timer()">重新開始</button>
             </div>
-            <div>
-                <button id="timer_stop_b" onclick="stop_timer()">Reset</button>
-            </div>
-            <div>
-                <svg width="100%" height="100%" viewBox="0 0 100% 100%">
-                    <text id="score" x="20%" y="70%" font-size="3.5em">Score 0/5</text>
-                </svg>
-            </div>
-            <!--            <span id="score_board">Score: 0 / 5</span>-->
+            <svg width="25%" height="95%">
+                <text id="score" x="25%" y="65%" font-size="4vmin">得分: 0/5</text>
+            </svg>
+        </div>
+        <div id="message_box" class="msg_b" style="visibility:hidden;">
+            <span>恭喜通關</span>
         </div>
     </div>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-    <script type="text/javascript" src="myfunction.js"></script>
-</body></html>
+</body>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="myfunction.js"></script>
+<!--<script src="http://192.168.6.39:8080/target/target-script-min.js"></script>-->
+
+</html>
